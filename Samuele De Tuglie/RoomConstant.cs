@@ -11,7 +11,12 @@
 
         public static int FORBIDDEN_ZOMBIE_SPAWN = 3;
 
-        
+        /// <summary>
+        /// Method to search a enemy inside a list
+        /// </summary>
+        /// <param name="pos">The position of the enemy</param>
+        /// <param name="enemyList">The List to search in</param>
+        /// <returns>The enemy at that position otherwise null</returns>
         public static SimpleEnemy SearchEnemy(Pair<int, int> pos, List<SimpleEnemy> enemyList)
         {
             if (enemyList != null && enemyList.Any())
@@ -27,6 +32,12 @@
             return null;
         }
 
+        /// <summary>
+        /// Method to search a Artefact inside a list
+        /// </summary>
+        /// <param name="pos">The position of the artefact</param>
+        /// <param name="artefactList"></param>
+        /// <returns>The artefact at that position otherwise null</returns>
         public static Artefact SearchArtefact(Pair<int, int> pos, List<Artefact> artefactList)
         {
             if (artefactList != null && artefactList.Any())
