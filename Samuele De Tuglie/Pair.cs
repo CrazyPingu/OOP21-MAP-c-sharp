@@ -10,20 +10,12 @@
         /// <summary>
         /// The first value of the pair
         /// </summary>
-        private X _x
-        {
-            get => _x;
-            set => _x = value;
-        }
+        public X First { get; set; }
 
         /// <summary>
         /// The second value of the pair
         /// </summary>
-        private Y _y
-        {
-            get => _y;
-            set => _y = value;
-        }
+        public Y Second { get; set; }
 
         /// <summary>
         /// The constructor of the pair
@@ -32,8 +24,8 @@
         /// <param name="y"> The second value of the pair</param>
         public Pair(X x, Y y)
         {
-            _x = x;
-            _y = y;
+            First = x;
+            Second = y;
         }
 
         /// <summary>
@@ -43,7 +35,7 @@
         /// <returns> A new Pair with the value of the pair given inverted</returns>
         public static Pair<X, Y> revertPair(Pair<Y, X> pair)
         {
-            return new Pair<X, Y>(pair._y, pair._x);
+            return new Pair<X, Y>(pair.Second, pair.First);
         }
 
         /// <summary>
@@ -54,8 +46,8 @@
         {
             int prime = 31;
             int result = 1;
-            result = prime * result + ((_x == null) ? 0 : _x.GetHashCode());
-            result = prime * result + ((_y == null) ? 0 : _y.GetHashCode());
+            result = prime * result + ((First == null) ? 0 : First.GetHashCode());
+            result = prime * result + ((Second == null) ? 0 : Second.GetHashCode());
             return result;
         }
 
@@ -79,25 +71,25 @@
                 return false;
             }
             Pair<X, Y> other = (Pair<X, Y>)obj;
-            if (_x == null)
+            if (First == null)
             {
-                if (other._x != null)
+                if (other.First != null)
                 {
                     return false;
                 }
             }
-            else if (!_x.Equals(other._x))
+            else if (!First.Equals(other.First))
             {
                 return false;
             }
-            if (_y == null)
+            if (Second == null)
             {
-                if (other._y != null)
+                if (other.Second != null)
                 {
                     return false;
                 }
             }
-            else if (!_y.Equals(other._y))
+            else if (!Second.Equals(other.Second))
             {
                 return false;
             }
@@ -112,7 +104,7 @@
         /// <returns>Returns a string that rappresent the pair</returns>
         public override string ToString()
         {
-            return "Pair [x=" + _x + ", y=" + _y + "]";
+            return "Pair [x=" + First + ", y=" + Second + "]";
         }
     }
 }
