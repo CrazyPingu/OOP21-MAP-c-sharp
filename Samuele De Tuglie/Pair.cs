@@ -5,7 +5,7 @@
     /// </summary>
     /// <typeparam name="X">The type of the first value</typeparam>
     /// <typeparam name="Y">The type of the second value</typeparam>
-    internal class Pair<X, Y>
+    public class Pair<X, Y>
     {
         /// <summary>
         /// The first value of the pair
@@ -74,7 +74,7 @@
             {
                 return false;
             }
-            if (this.GetType().Name != obj.GetType().Name)
+            if (GetType().Name != obj.GetType().Name)
             {
                 return false;
             }
