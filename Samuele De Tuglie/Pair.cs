@@ -8,7 +8,7 @@
     internal class Pair<X, Y>
     {
         /// <summary>
-        /// The first value
+        /// The first value of the pair
         /// </summary>
         private X _x
         {
@@ -17,7 +17,7 @@
         }
 
         /// <summary>
-        /// The second value
+        /// The second value of the pair
         /// </summary>
         private Y _y
         {
@@ -28,8 +28,8 @@
         /// <summary>
         /// The constructor of the pair
         /// </summary>
-        /// <param name="x"> The first value</param>
-        /// <param name="y"> The second value</param>
+        /// <param name="x"> The first value of the pair</param>
+        /// <param name="y"> The second value of the pair</param>
         public Pair(X x, Y y)
         {
             _x = x;
@@ -40,7 +40,7 @@
         /// Method to revert the value of a pair
         /// </summary>
         /// <param name="pair"> The pair to be reverted</param>
-        /// <returns> Return a new Pair with the value of the pair given inverted</returns>
+        /// <returns> A new Pair with the value of the pair given inverted</returns>
         public static Pair<X, Y> reverPair(Pair<Y, X> pair)
         {
             return new Pair<X, Y>(pair._y, pair._x);
@@ -49,7 +49,7 @@
         /// <summary>
         /// Method to calculate the hashcode
         /// </summary>
-        /// <returns>Return a new hash code</returns>
+        /// <returns>A new hash code</returns>
         public override int GetHashCode()
         {
             int prime = 31;
@@ -63,7 +63,7 @@
         /// Method to compare two Pair
         /// </summary>
         /// <param name="obj">The Pair to compare</param>
-        /// <returns>Return true if the pair are equals else false</returns>
+        /// <returns>True if the pair are equals else false</returns>
         public override bool Equals(object obj)
         {
             if (this == obj)
