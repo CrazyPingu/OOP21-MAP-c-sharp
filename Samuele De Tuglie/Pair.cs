@@ -3,29 +3,29 @@
     /// <summary>
     /// Class to model a pair of value
     /// </summary>
-    /// <typeparam name="X">The type of the first value</typeparam>
-    /// <typeparam name="Y">The type of the second value</typeparam>
-    public class Pair<X, Y>
+    /// <typeparam name="A">The type of the first value</typeparam>
+    /// <typeparam name="B">The type of the second value</typeparam>
+    public class Pair<A, B>
     {
         /// <summary>
         /// The first value of the pair
         /// </summary>
-        public X First { get; set; }
-
+        public A X { get; set; }
+        
         /// <summary>
         /// The second value of the pair
         /// </summary>
-        public Y Second { get; set; }
+        public B Y { get; set; }
 
         /// <summary>
         /// The constructor of the pair
         /// </summary>
         /// <param name="x"> The first value of the pair</param>
         /// <param name="y"> The second value of the pair</param>
-        public Pair(X x, Y y)
+        public Pair(A x, B y)
         {
-            First = x;
-            Second = y;
+            X = x;
+            Y = y;
         }
 
         /// <summary>
@@ -33,29 +33,20 @@
         /// </summary>
         /// <param name="pair"> The pair to be reverted</param>
         /// <returns> A new Pair with the value of the pair given inverted</returns>
-        public static Pair<X, Y> revertPair(Pair<Y, X> pair)
+        public static Pair<B, A> revertPair(Pair<A, B> pair)
         {
-            return new Pair<X, Y>(pair.Second, pair.First);
+            return new Pair<B, A>(pair.Y, pair.X);
         }
 
-        /// <summary>
-        /// Method to calculate the hashcode
-        /// </summary>
-        /// <returns>A new hash code</returns>
         public override int GetHashCode()
         {
             int prime = 31;
             int result = 1;
-            result = prime * result + ((First == null) ? 0 : First.GetHashCode());
-            result = prime * result + ((Second == null) ? 0 : Second.GetHashCode());
+            result = prime * result + ((X == null) ? 0 : X.GetHashCode());
+            result = prime * result + ((Y == null) ? 0 : Y.GetHashCode());
             return result;
         }
 
-        /// <summary>
-        /// Method to compare two Pair
-        /// </summary>
-        /// <param name="obj">The Pair to compare</param>
-        /// <returns>True if the pair are equals else false</returns>
         public override bool Equals(object obj)
         {
             if (this == obj)
@@ -70,41 +61,35 @@
             {
                 return false;
             }
-            Pair<X, Y> other = (Pair<X, Y>)obj;
-            if (First == null)
+            Pair<A, B> other = (Pair<A, B>)obj;
+            if (X == null)
             {
-                if (other.First != null)
+                if (other.X != null)
                 {
                     return false;
                 }
             }
-            else if (!First.Equals(other.First))
+            else if (!X.Equals(other.X))
             {
                 return false;
             }
-            if (Second == null)
+            if (Y == null)
             {
-                if (other.Second != null)
+                if (other.Y != null)
                 {
                     return false;
                 }
             }
-            else if (!Second.Equals(other.Second))
+            else if (!Y.Equals(other.Y))
             {
                 return false;
             }
             return true;
         }
 
-
-
-        /// <summary>
-        /// Method to have a string representation of the pair
-        /// </summary>
-        /// <returns>Returns a string that rappresent the pair</returns>
         public override string ToString()
         {
-            return "Pair [x=" + First + ", y=" + Second + "]";
+            return "Pair [x=" + X + ", y=" + Y + "]";
         }
     }
 }
