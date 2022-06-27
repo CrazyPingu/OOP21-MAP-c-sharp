@@ -41,7 +41,7 @@
         /// </summary>
         /// <param name="pair"> The pair to be reverted</param>
         /// <returns> A new Pair with the value of the pair given inverted</returns>
-        public static Pair<X, Y> reverPair(Pair<Y, X> pair)
+        public static Pair<X, Y> revertPair(Pair<Y, X> pair)
         {
             return new Pair<X, Y>(pair._y, pair._x);
         }
