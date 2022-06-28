@@ -1,4 +1,5 @@
 ﻿using Utilities;
+using Button;
 
 namespace Room
 {
@@ -7,9 +8,10 @@ namespace Room
     /// </summary>
     public class RoomImpl : Room
     {
-        public Pair<int, int> Size { get; set; }
-        public Player Player { get; set; }
-        public List<Pair<int, int>> Door { get; set; }
+        public Pair<int, int> Size { get; }
+        public Dictionary<Pair<int, int>, GameButton> Cells { get; }
+        public Player Player { get; }
+        public List<Pair<int, int>> Door { get; }
         public List<SimpleEnemy> EnemyList { get; set; }
         public List<Artefact> ArtefactList { get; set; }
         public List<Obstacle> ObstacleList { get; set; }
@@ -76,6 +78,11 @@ namespace Room
             {
                 this.Player.Pos = newPos;
             }
+        }
+
+        public void AddButtonToCells(Pair<int, int> pos, GameButton button)
+        {
+            Cells.Add(pos, button);
         }
     }
 }
