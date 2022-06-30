@@ -3,37 +3,29 @@
     /// <summary>
     /// Class to model a pair of value
     /// </summary>
-    /// <typeparam name="X">The type of the first value</typeparam>
-    /// <typeparam name="Y">The type of the second value</typeparam>
-    public class Pair<X, Y>
+    /// <typeparam name="A">The type of the first value</typeparam>
+    /// <typeparam name="B">The type of the second value</typeparam>
+    public class Pair<A, B>
     {
         /// <summary>
         /// The first value of the pair
         /// </summary>
-        private X _x
-        {
-            get => _x;
-            set => _x = value;
-        }
-
+        public A X { get; set; }
+        
         /// <summary>
         /// The second value of the pair
         /// </summary>
-        private Y _y
-        {
-            get => _y;
-            set => _y = value;
-        }
+        public B Y { get; set; }
 
         /// <summary>
         /// The constructor of the pair
         /// </summary>
         /// <param name="x"> The first value of the pair</param>
         /// <param name="y"> The second value of the pair</param>
-        public Pair(X x, Y y)
+        public Pair(A x, B y)
         {
-            _x = x;
-            _y = y;
+            X = x;
+            Y = y;
         }
 
         /// <summary>
@@ -41,29 +33,20 @@
         /// </summary>
         /// <param name="pair"> The pair to be reverted</param>
         /// <returns> A new Pair with the value of the pair given inverted</returns>
-        public static Pair<X, Y> revertPair(Pair<Y, X> pair)
+        public static Pair<B, A> revertPair(Pair<A, B> pair)
         {
-            return new Pair<X, Y>(pair._y, pair._x);
+            return new Pair<B, A>(pair.Y, pair.X);
         }
 
-        /// <summary>
-        /// Method to calculate the hashcode
-        /// </summary>
-        /// <returns>A new hash code</returns>
         public override int GetHashCode()
         {
             int prime = 31;
             int result = 1;
-            result = prime * result + ((_x == null) ? 0 : _x.GetHashCode());
-            result = prime * result + ((_y == null) ? 0 : _y.GetHashCode());
+            result = prime * result + ((X == null) ? 0 : X.GetHashCode());
+            result = prime * result + ((Y == null) ? 0 : Y.GetHashCode());
             return result;
         }
 
-        /// <summary>
-        /// Method to compare two Pair
-        /// </summary>
-        /// <param name="obj">The Pair to compare</param>
-        /// <returns>True if the pair are equals else false</returns>
         public override bool Equals(object obj)
         {
             if (this == obj)
@@ -78,41 +61,35 @@
             {
                 return false;
             }
-            Pair<X, Y> other = (Pair<X, Y>)obj;
-            if (_x == null)
+            Pair<A, B> other = (Pair<A, B>)obj;
+            if (X == null)
             {
-                if (other._x != null)
+                if (other.X != null)
                 {
                     return false;
                 }
             }
-            else if (!_x.Equals(other._x))
+            else if (!X.Equals(other.X))
             {
                 return false;
             }
-            if (_y == null)
+            if (Y == null)
             {
-                if (other._y != null)
+                if (other.Y != null)
                 {
                     return false;
                 }
             }
-            else if (!_y.Equals(other._y))
+            else if (!Y.Equals(other.Y))
             {
                 return false;
             }
             return true;
         }
 
-
-
-        /// <summary>
-        /// Method to have a string representation of the pair
-        /// </summary>
-        /// <returns>Returns a string that rappresent the pair</returns>
         public override string ToString()
         {
-            return "Pair [x=" + _x + ", y=" + _y + "]";
+            return "Pair [x=" + X + ", y=" + Y + "]";
         }
     }
 }
