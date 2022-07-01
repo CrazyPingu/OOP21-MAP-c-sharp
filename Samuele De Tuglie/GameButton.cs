@@ -72,9 +72,9 @@ namespace Button
         /// Draw the given Game Object
         /// </summary>
         /// <param name="object">The game object to draw</param>
-        public void DrawGameObject(GameObject object)
+        public void DrawGameObject(GameObject obj)
         {
-            _image = object.Image;
+            _image = obj.Image;
         }
 
         /// <summary>
