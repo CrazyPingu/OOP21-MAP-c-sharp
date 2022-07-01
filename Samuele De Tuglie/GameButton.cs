@@ -7,13 +7,13 @@ namespace Button
     /// </summary>
     public class GameButton : RibbonButton
     {
-        private readonly (int, int) _buttonDimension;
-        private readonly Pair<int, int> _pos;
-        private Image _image;
+        private readonly Tuple<int, int> _buttonDimension;
+        private readonly Tuple<int, int> _pos;
+        private Image? _image;
         private Color _color;
         private readonly bool _isDoor;
-        private readonly Pair<int, int> _radius;
-        private readonly Pair<int, int> _dim;
+        private readonly Tuple<int, int> _radius;
+        private readonly Tuple<int, int> _dim;
         private Pen _pen;
 
         /// <summary>
@@ -22,15 +22,14 @@ namespace Button
         /// <param name="buttonDimension">The dimension of the button in pixel</param>
         /// <param name="pos">The position of the button inside the grid</param>
         /// <param name="isDoor">True if the button is a door</param>
-        public GameButton((int, int) buttonDimension, Pair<int, int> pos, bool isDoor)
+        public GameButton(Tuple<int, int> buttonDimension, Tuple<int, int> pos, bool isDoor)
         {
             _isDoor = isDoor;
             _color = RoomConstant.BASIC_CELL_COLOR;
-            _radius = new Pair<int, int>(buttonDimension.Item1 / 4, buttonDimension.Item2 / 4);
-            _dim = new Pair<int, int>(buttonDimension.Item1 / 2 - _radius.X / 2,
-                buttonDimension.Item2 / 2 - _radius.Y / 2);
+            _radius = new Tuple<int, int>(buttonDimension.Item1 / 4, buttonDimension.Item2 / 4);
+            _dim = new Tuple<int, int>(buttonDimension.Item1 / 2 - _radius.Item1 / 2,
+                buttonDimension.Item2 / 2 - _radius.Item2 / 2);
             _pos = pos;
-            _image = null;
             _buttonDimension = buttonDimension;
             Enabled = false;
             _pen = new Pen(_color);
@@ -55,7 +54,7 @@ namespace Button
             if (CheckHighlight())
             {
                 _pen.Color = _color;
-                e.Graphics.DrawEllipse(_pen, _dim.X, _dim.Y, _radius.X, _radius.Y);
+                e.Graphics.DrawEllipse(_pen, _dim.Item1, _dim.Item2, _radius.Item1, _radius.Item2);
             }
         }
 
@@ -73,10 +72,10 @@ namespace Button
         /// Draw the given Game Object
         /// </summary>
         /// <param name="object">The game object to draw</param>
-        public void DrawGameObject(GameObject object)
+        public void DrawGameObject(GameObject obj)
         {
-            _image = object.Image;
-        } 
+            _image = obj.Image;
+        }
 
         /// <summary>
         /// Remove the sprite drawn
@@ -92,7 +91,7 @@ namespace Button
         /// <param name="backgroudColor">backgroundColor the color to place on background</param>
         public void HighlightCell(Color backgroudColor)
         {
-            if(backgroudColor != RoomConstant.ENEMY_RANGE)
+            if (backgroudColor != RoomConstant.ENEMY_RANGE)
             {
                 Enabled = true;
             }
@@ -107,6 +106,5 @@ namespace Button
             Enabled = false;
             _color = RoomConstant.BASIC_CELL_COLOR;
         }
-        
     }
 }
