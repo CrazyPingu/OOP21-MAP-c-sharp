@@ -8,10 +8,10 @@ namespace Room
     /// </summary>
     public class Room : IRoom
     {
-        public Pair<int, int> Size { get; }
-        public Dictionary<Pair<int, int>, GameButton> Cells { get; }
+        public Tuple<int, int> Size { get; }
+        public Dictionary<Tuple<int, int>, GameButton> Cells { get; }
         public Player Player { get; }
-        public List<Pair<int, int>> Door { get; }
+        public List<Tuple<int, int>> Door { get; }
         public List<SimpleEnemy> EnemyList { get; set; }
         public List<Artefact> ArtefactList { get; set; }
         public List<Obstacle> ObstacleList { get; set; }
@@ -22,24 +22,25 @@ namespace Room
         /// <param name="size">The size of the room</param>
         /// <param name="Player">The player of the game</param>
         /// <param name="newPosPlayer">The new position of the player</param>
-        public RoomImpl(Pair<int, int> size, Player Player, Pair<int, int> newPosPlayer)
+        public Room(Tuple<int, int> size, Player Player, Tuple<int, int> newPosPlayer)
         {
             Size = size;
             Player = Player;
             Door = GenerateDoor();
+            Cells = new Dictionary<Tuple<int, int>, GameButton>();
         }
 
         /// <summary>
         /// Method to generate the door
         /// </summary>
-        /// <returns>A list of pair that rappresent the door</returns>
-        private List<Pair<int, int>> GenerateDoor()
+        /// <returns>A list of tuple that rappresent the door</returns>
+        private List<Tuple<int, int>> GenerateDoor()
         {
-            List<Pair<int, int>> tmp = new List<Pair<int, int>>();
-            tmp.Add(new Pair<int, int>(Size.X - 1, Size.Y / 2));
-            if (Size.Y % 2 == 0)
+            List<Tuple<int, int>> tmp = new List<Tuple<int, int>>();
+            tmp.Add(new Tuple<int, int>(Size.Item1 - 1, Size.Item2 / 2));
+            if (Size.Item2 % 2 == 0)
             {
-                tmp.Add(new Pair<int, int>(Size.X - 1, Size.Y / 2 - 1));
+                tmp.Add(new Tuple<int, int>(Size.Item1 - 1, Size.Item2 / 2 - 1));
             }
             return tmp;
         }
@@ -51,7 +52,7 @@ namespace Room
         }
 
         /// <inheritdoc />
-        public void RemoveObject(Pair<int, int> pos)
+        public void RemoveObject(Tuple<int, int> pos)
         {
             if (RoomConstant.SearchEnemy(pos, EnemyList) != null)
             {
@@ -68,7 +69,7 @@ namespace Room
         }
 
         /// <inheritdoc />
-        public void UpdatePosition(Pair<int, int> oldPos, Pair<int, int> newPos)
+        public void UpdatePosition(Tuple<int, int> oldPos, Tuple<int, int> newPos)
         {
             if (RoomConstant.SearchEnemy(oldPos, EnemyList) != null)
             {
@@ -80,7 +81,7 @@ namespace Room
             }
         }
 
-        public void AddButtonToCells(Pair<int, int> pos, GameButton button)
+        public void AddButtonToCells(Tuple<int, int> pos, GameButton button)
         {
             Cells.Add(pos, button);
         }

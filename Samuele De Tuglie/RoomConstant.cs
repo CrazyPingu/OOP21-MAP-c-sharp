@@ -17,7 +17,7 @@
         /// <param name="pos">The position of the enemy</param>
         /// <param name="enemyList">The List to search in</param>
         /// <returns>The enemy at that position otherwise null</returns>
-        public static SimpleEnemy SearchEnemy(Pair<int, int> pos, List<SimpleEnemy> enemyList)
+        public static SimpleEnemy SearchEnemy((int, int) pos, List<SimpleEnemy> enemyList)
         {
             if (enemyList != null && enemyList.Any())
             {
@@ -38,7 +38,7 @@
         /// <param name="pos">The position of the artefact</param>
         /// <param name="artefactList"></param>
         /// <returns>The artefact at that position otherwise null</returns>
-        public static Artefact SearchArtefact(Pair<int, int> pos, List<Artefact> artefactList)
+        public static Artefact SearchArtefact((int, int) pos, List<Artefact> artefactList)
         {
             if (artefactList != null && artefactList.Any())
             {

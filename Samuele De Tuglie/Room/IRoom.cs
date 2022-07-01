@@ -1,5 +1,4 @@
-﻿using Utilities;
-using Button;
+﻿using Button;
 
 namespace Room
 {
@@ -19,21 +18,19 @@ namespace Room
         /// </summary>
         /// <param name="pos">The position of the button</param>
         /// <param name="button">The button to be added</param>
-        void AddButtonToCells(Pair<int, int> pos, GameButton button);
+        void AddButtonToCells(Tuple<int, int> pos, GameButton button);
 
         /// <summary>
         /// Method to remove an object from the game
         /// </summary>
         /// <param name="pos">The position of the object to be removed</param>
-        void UpdatePosition(Pair<int, int> oldPos, Pair<int, int> newPos);
+        void UpdatePosition(Tuple<int, int> oldPos, Tuple<int, int> newPos);
 
         /// <summary>
         /// Method to move an object in the game
         /// </summary>
         /// <param name="oldPos">The current position of the object</param>
         /// <param name="newPos">The position that the object will go on</param>
-        void RemoveObject(Pair<int, int> pos);
-
-
+        void RemoveObject(Tuple<int, int> pos);
     }
 }
