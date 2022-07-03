@@ -82,7 +82,8 @@ namespace RoomArea
                 this.Player.Pos = newPos;
             }
         }
-
+        
+        /// <inheritdoc />
         public void AddButtonToCells(Tuple<int, int> pos, GameButton button)
         {
             Cells.Add(pos, button);

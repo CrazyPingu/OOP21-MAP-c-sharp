@@ -48,7 +48,7 @@ namespace Button
             }
             else
             {
-                e.Graphics.DrawImage(null, 0, 0, _buttonDimension.Item1, _buttonDimension.Item2);
+                e.Graphics.DrawImage(RoomConstant.BUTTON_IMAGE, 0, 0, _buttonDimension.Item1, _buttonDimension.Item2);
             }
             if (_image != null)
             {

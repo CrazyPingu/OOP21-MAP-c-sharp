@@ -7,14 +7,22 @@ namespace Utilities
 {
     public class RoomConstant
     {
-        public static Color ATTACK_HIGHLIGHT = Color.Red;
-        public static Color MOVE_HIGHLIGHT = Color.Blue;
-        public static Color ENEMY_RANGE = Color.FromArgb(153, 50, 204);
+        public static readonly Color ATTACK_HIGHLIGHT = Color.Red;
+        public static readonly Color MOVE_HIGHLIGHT = Color.Blue;
+        public static readonly Color ENEMY_RANGE = Color.FromArgb(153, 50, 204);
 
-        public static Color BASIC_CELL_COLOR = Color.Gray;
-        public static Color DOOR_CELL_COLOR = Color.FromArgb(110, 38, 14);
+        public static readonly Color BASIC_CELL_COLOR = Color.Gray;
+        public static readonly Color DOOR_CELL_COLOR = Color.FromArgb(110, 38, 14);
+        
+        public const int FORBIDDEN_ZOMBIE_SPAWN = 3;
+        
+        public static readonly Tuple<int,int> MAX_DIM = new Tuple<int, int>(10,10);
+        
+        public static readonly Tuple<int, int> MIN_DIM = new Tuple<int, int>(5, 5);
 
-        public static int FORBIDDEN_ZOMBIE_SPAWN = 3;
+        public const Image BUTTON_IMAGE = null;
+        
+        private RoomConstant() { }
 
         /// <summary>
         /// Method to search a enemy inside a list
