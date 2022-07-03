@@ -3,7 +3,7 @@ using Button;
 using System;
 using System.Collections.Generic;
 
-namespace Room
+namespace RoomArea
 {
     /// <summary>
     /// Class that rappresent a Room
