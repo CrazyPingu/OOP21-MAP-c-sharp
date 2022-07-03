@@ -1,4 +1,4 @@
-﻿namespace Weapon
+﻿namespace WeaponObject
 {
     /// <summary>
     /// Factory with methods to create different types of weapons.

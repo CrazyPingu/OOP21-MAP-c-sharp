@@ -1,19 +1,21 @@
-﻿namespace Weapon
+﻿using System;
+using System.Collections.Generic;
+namespace WeaponObject
 {
     /// <summary>
     /// Create the weapon designed by the passed value implementing the weapon interface.
     /// </summary>
     public class Weapon : IWeapon
     {
-        public int Damage { get; }
-        public String Name { get; }
+        public IWeaponFactory.Damage Damage { get; }
+        public string Name { get; }
         private readonly Strategy _shootingStrategy;
 
         /**
          * @param damage           is the damage that the weapon can inflict
          * @param shootingStrategy is the area within the weapon can reach
          */
-        public Weapon(IWeaponFactory.Damage damage, String name, Strategy shootingStrategy)
+        public Weapon(IWeaponFactory.Damage damage, string name, Strategy shootingStrategy)
         {
             Damage = damage;
             Name = name;

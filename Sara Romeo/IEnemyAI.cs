@@ -1,4 +1,6 @@
-﻿namespace EnemyAI
+﻿using System;
+
+namespace EnemyAI
 {
     /// <summary>
     /// Methods to define enemies behaviors during their turn.

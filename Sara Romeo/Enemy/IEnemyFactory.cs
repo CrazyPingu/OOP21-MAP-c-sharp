@@ -1,4 +1,5 @@
-﻿namespace EnemyFactory
+﻿using System;
+namespace EnemyFactory
 {
     /// <summary>
     /// Interface that declares methods for the enemy factory.

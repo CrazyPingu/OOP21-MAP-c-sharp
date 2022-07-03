@@ -1,4 +1,6 @@
-﻿using Utilities;
+﻿using System;
+using System.Collections.Generic;
+using Utilities;
 /// <summary>
 /// Implementation of enemies behaviors.
 /// </summary>

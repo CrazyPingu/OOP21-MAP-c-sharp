@@ -1,4 +1,6 @@
-﻿namespace Weapon
+﻿using System;
+using System.Collections.Generic;
+namespace WeaponObject
 {
     /// <summary>
     /// Interface that declares methods for the weapon. Represent the "Context" of Factory interface.

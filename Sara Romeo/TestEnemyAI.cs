@@ -1,6 +1,9 @@
-﻿using NUnit.Framework;
+﻿using System;
+using System.Collections.Generic;
+using NUnit.Framework;
 using EnemyAI;
-using Weapon;
+using WeaponObject;
+using RoomArea;
 
 namespace Test
 {
@@ -15,16 +18,18 @@ namespace Test
         private readonly IHealthArtefactFactory _hf = new HealthArtefactFactory();
         private readonly IMovementFactory _mf = new MovementFactory();
         private readonly IObstacleFactory _of = new ObstacleFactory();
-        private readonly Tuple<int, int> _roomSize = new Tuple<int, int>(10, 4);
+        private Tuple<int, int> _roomSize;
         private List<Tuple<int, int>> _expectedResult = new List<Tuple<int, int>>();
         private IEnemyAI _enemyAI;
         private Player _player;
         private SimpleEnemy _enemyAroundArea, _enemyCrossArea;
         private Room.Room _room;
-       
+
+        [SetUp]
         /// Initialize all elements needed.
         public void Init()
         {
+            _roomSize = new Tuple<int, int>(10, 4);
             _player = new Player(new ExtendibleMaxLifeSystem(4, 10, 20), _wf.CreateAxe(), _mf.createStepMovement(), "Marcello-test", EntityTexture.PLAYER);
             _room = new Room.Room(_roomSize, _player, new Tuple<int, int>(2, 1));
             _enemyAI = new EnemyAI.EnemyAI(_room);
@@ -38,15 +43,15 @@ namespace Test
         }
 
         [Test]
-        /// testing of enemy's moving behavior whether there's an artefact on chosen cell
+        /// testing of enemy's moving behavior whether there's an obstacle on chosen cell
         public void ObjectInArea()
         {
-            Console.WriteLine("\n-- objectInArea\n");
-            _player.setPos(new Tuple<int, int>(2, 3));
-            _room.ArtefactList.Add(_hf.createBigHealArtefact(new Tuple<int, int>(4, 2)));
-            _expectedResult.Add(new Tuple<int, int>(4, 1));
-            _expectedResult.Add(new Tuple<int, int>(5, 2));
-            ResultsToString(_enemyAI.Move(_enemyAroundArea), _expectedResult);
+            // Console.WriteLine("\n-- objectInArea\n");
+            // _player.setPos(new Tuple<int, int>(2, 3));
+            // _room.ArtefactList.Add(_hf.createBigHealArtefact(new Tuple<int, int>(4, 2)));
+            // _expectedResult.Add(new Tuple<int, int>(4, 1));
+            // _expectedResult.Add(new Tuple<int, int>(5, 2));
+            // ResultsToString(_enemyAI.Move(_enemyAroundArea), _expectedResult);
             _room.ArtefactList.Clear();
             _room.ObstacleList.Add(_of.createPebble(new Tuple<int, int>(4, 2)));
             ResultsToString(_enemyAI.Move(_enemyAroundArea), _expectedResult);
@@ -128,7 +133,7 @@ namespace Test
             _expectedResult.Add(new Tuple<int, int>(5, 3));
             ResultsToString(_enemyAI.Move(_enemyCrossArea), _expectedResult);
         }
-        
+
         /// <summary>
         /// Results are printed on console and tested with JUnit.
         /// </summary>

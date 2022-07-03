@@ -1,5 +1,4 @@
-﻿
-namespace Weapon
+﻿namespace WeaponObject
 {
     public interface IWeaponFactory
     {
