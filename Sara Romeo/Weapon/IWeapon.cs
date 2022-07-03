@@ -8,7 +8,7 @@ namespace WeaponObject
     public interface IWeapon
     {
         /// <summary>
-        /// 
+        /// Gets list of available cells to attack based on shooting strategy applied.
         /// </summary>
         /// <param name="pos">current pos</param>
         /// <param name="size"></param>

@@ -22,7 +22,7 @@ namespace WeaponObject
             _shootingStrategy = shootingStrategy;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public List<Tuple<int, int>> getAttackArea(Tuple<int, int> pos, Tuple<int, int> size)
         {
             return _shootingStrategy.execute(pos, size);

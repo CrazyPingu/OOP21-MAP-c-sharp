@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using Utilities;
 using RoomArea;
-/// <summary>
-/// Implementation of enemies behaviors.
-/// </summary>
+
 namespace EnemyAIMovement
 {
+    /// <summary>
+    /// Implementation of enemies behaviors.
+    /// </summary>
     public class EnemyAI : IEnemyAI
     {
         private Room _room;
@@ -22,7 +23,7 @@ namespace EnemyAIMovement
         /// <param name="room">current room</param>
         public void UpdateAIRoom(Room room) => _room = room;
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public Tuple<int, int> Move(SimpleEnemy enemy)
         {
             Tuple<int, int> newEnemyPos = enemy.getPos();
@@ -40,7 +41,7 @@ namespace EnemyAIMovement
         }
 
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public bool IsPlayerInAttackArea(SimpleEnemy enemy, Player player, Tuple<int, int> roomSize)
         {
             List<Tuple<int, int>> attackableArea = enemy.getWeapon().getAttackArea(enemy.getPos(), roomSize);
