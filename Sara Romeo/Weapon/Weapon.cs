@@ -13,7 +13,7 @@
          * @param damage           is the damage that the weapon can inflict
          * @param shootingStrategy is the area within the weapon can reach
          */
-        public Weapon(int damage, String name, Strategy shootingStrategy)
+        public Weapon(IWeaponFactory.Damage damage, String name, Strategy shootingStrategy)
         {
             Damage = damage;
             Name = name;
