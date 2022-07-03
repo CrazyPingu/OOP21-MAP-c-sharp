@@ -3,34 +3,34 @@
     /// <summary>
     /// Factory with methods to create different types of weapons.
     /// </summary>
-    public class WeaponFactory
+    public class WeaponFactory : IWeaponFactory
     {
         /// <inheritdoc />
-        public Weapon createStick()
+        public Weapon CreateStick()
         {
             return new Weapon(IWeaponFactory.Damage.ONE, "stick", new AroundArea(VariableDistanceConstants.SINGLE_DISTANCE));
         }
 
         /// <inheritdoc />
-        public Weapon createAxe()
+        public Weapon CreateAxe()
         {
             return new Weapon(IWeaponFactory.Damage.THREE, "axe", new AroundArea(VariableDistanceConstants.SINGLE_DISTANCE));
         }
 
         /// <inheritdoc />
-        public Weapon createDagger()
+        public Weapon CreateDagger()
         {
             return new Weapon(IWeaponFactory.Damage.THREE, "dagger", new AroundArea(VariableDistanceConstants.SINGLE_DISTANCE));
         }
 
         /// <inheritdoc />
-        public Weapon createTube()
+        public Weapon CreateTube()
         {
             return new Weapon(IWeaponFactory.Damage.TWO, "tube", new AsteriskArea(VariableDistanceConstants.SINGLE_DISTANCE));
         }
 
         /// <inheritdoc />
-        public Weapon createGun()
+        public Weapon CreateGun()
         {
             return new Weapon(IWeaponFactory.Damage.FOUR, "gun", new AroundArea(VariableDistanceConstants.DOUBLE_DISTANCE));
         }

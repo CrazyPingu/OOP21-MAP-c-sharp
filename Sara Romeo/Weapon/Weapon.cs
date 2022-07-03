@@ -3,7 +3,7 @@
     /// <summary>
     /// Create the weapon designed by the passed value implementing the weapon interface.
     /// </summary>
-    public class Weapon
+    public class Weapon : IWeapon
     {
         public int Damage { get; }
         public String Name { get; }

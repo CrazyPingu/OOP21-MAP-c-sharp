@@ -1,4 +1,6 @@
 ﻿using NUnit.Framework;
+using EnemyAI;
+using Weapon;
 
 namespace Test
 {
@@ -8,29 +10,30 @@ namespace Test
     [TestFixture]
     public class TestEnemyAI
     {
-        private readonly IWeaponFactory wf = new WeaponFactory();
-        private readonly IHealthArtefactFactory hf = new HealthArtefactFactory();
-        private readonly IMovementFactory mf = new MovementFactory();
-        private readonly IEnemyFactory ef = new EnemyFactory();
-        private readonly IObstacleFactory of = new ObstacleFactory();
-        private EnemyAI.EnemyAI _enemyAI;
-        private Player _player = new Player(new ExtendibleMaxLifeSystem(4, 10, 20), wf.createAxe(), mf.createStepMovement(), "Marcello-test", EntityTexture.PLAYER);
-        private SimpleEnemy _enemyAroundArea, _enemyCrossArea;
-        private List<Tuple<int, int>> _expectedResult = new List<Tuple<int, int>>();
+        private readonly WeaponFactory _wf = new WeaponFactory();
+        private readonly EnemyFactory.EnemyFactory _ef = new EnemyFactory.EnemyFactory();
+        private readonly IHealthArtefactFactory _hf = new HealthArtefactFactory();
+        private readonly IMovementFactory _mf = new MovementFactory();
+        private readonly IObstacleFactory _of = new ObstacleFactory();
         private readonly Tuple<int, int> _roomSize = new Tuple<int, int>(10, 4);
+        private List<Tuple<int, int>> _expectedResult = new List<Tuple<int, int>>();
+        private IEnemyAI _enemyAI;
+        private Player _player;
+        private SimpleEnemy _enemyAroundArea, _enemyCrossArea;
         private Room.Room _room;
        
         /// Initialize all elements needed.
         public void Init()
         {
+            _player = new Player(new ExtendibleMaxLifeSystem(4, 10, 20), _wf.CreateAxe(), _mf.createStepMovement(), "Marcello-test", EntityTexture.PLAYER);
             _room = new Room.Room(_roomSize, _player, new Tuple<int, int>(2, 1));
             _enemyAI = new EnemyAI.EnemyAI(_room);
             _room.EnemyList.Clear();
             _room.ArtefactList.Clear();
             _room.ObstacleList.Clear();
-            _enemyAroundArea = ef.CreateZombieStick(new Tuple<int, int>(5, 1));
+            _enemyAroundArea = _ef.CreateZombieStick(new Tuple<int, int>(5, 1));
             _room.EnemyList.Add(_enemyAroundArea);
-            _enemyCrossArea = ef.CreateZombieGun(new Tuple<int, int>(3, 3));
+            _enemyCrossArea = _ef.CreateZombieGun(new Tuple<int, int>(3, 3));
             _room.EnemyList.Add(_enemyCrossArea);
         }
 
@@ -40,12 +43,12 @@ namespace Test
         {
             Console.WriteLine("\n-- objectInArea\n");
             _player.setPos(new Tuple<int, int>(2, 3));
-            _room.ArtefactList.Add(hf.createBigHealArtefact(new Tuple<int, int>(4, 2)));
+            _room.ArtefactList.Add(_hf.createBigHealArtefact(new Tuple<int, int>(4, 2)));
             _expectedResult.Add(new Tuple<int, int>(4, 1));
             _expectedResult.Add(new Tuple<int, int>(5, 2));
             ResultsToString(_enemyAI.Move(_enemyAroundArea), _expectedResult);
             _room.ArtefactList.Clear();
-            _room.ObstacleList.Add(of.createPebble(new Tuple<int, int>(4, 2)));
+            _room.ObstacleList.Add(_of.createPebble(new Tuple<int, int>(4, 2)));
             ResultsToString(_enemyAI.Move(_enemyAroundArea), _expectedResult);
         }
 

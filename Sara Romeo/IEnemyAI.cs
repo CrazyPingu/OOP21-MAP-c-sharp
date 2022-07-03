@@ -3,7 +3,7 @@
     /// <summary>
     /// Methods to define enemies behaviors during their turn.
     /// </summary>
-    internal interface IEnemyAI
+    public interface IEnemyAI
     {
 
         /// <summary>
