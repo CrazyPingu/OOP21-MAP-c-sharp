@@ -8,11 +8,11 @@ namespace Test
     [TestFixture]
     public class TestEnemyAI
     {
-        private readonly WeaponFactory wf = new WeaponFactoryImpl();
-        private readonly HealthArtefactFactory hf = new HealthArtefactFactoryImpl();
-        private readonly MovementFactory mf = new MovementFactoryImpl();
-        private readonly EnemyFactory ef = new EnemyFactoryImpl();
-        private readonly ObstacleFactory of = new ObstacleFactoryImpl();
+        private readonly IWeaponFactory wf = new WeaponFactory();
+        private readonly IHealthArtefactFactory hf = new HealthArtefactFactory();
+        private readonly IMovementFactory mf = new MovementFactory();
+        private readonly IEnemyFactory ef = new EnemyFactory();
+        private readonly IObstacleFactory of = new ObstacleFactory();
         private EnemyAI.EnemyAI _enemyAI;
         private Player _player = new Player(new ExtendibleMaxLifeSystem(4, 10, 20), wf.createAxe(), mf.createStepMovement(), "Marcello-test", EntityTexture.PLAYER);
         private SimpleEnemy _enemyAroundArea, _enemyCrossArea;

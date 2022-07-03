@@ -1,4 +1,4 @@
-﻿using Room;
+﻿using Utilities;
 /// <summary>
 /// Implementation of enemies behaviors.
 /// </summary>
@@ -28,7 +28,7 @@ namespace EnemyAI
             foreach (var cell in enemy.getReachableArea(_room.Size).get())
             {
                 distance = CalculateDistanceFromPlayer(cell, _room.Player.getPos());
-                if (distance < minDistance && !(RoomConstant.cellsOccupated(_room.EnemyList, _room.ArtefactList, _room.ObstacleList, _room.Player, cell)))
+                if (distance < minDistance && !(RoomConstant.CellsOccupated(_room.EnemyList, _room.ArtefactList, _room.ObstacleList, _room.Player, cell)))
                 {
                     newEnemyPos = cell;
                     minDistance = distance;
