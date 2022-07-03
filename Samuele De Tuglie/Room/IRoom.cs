@@ -1,7 +1,7 @@
 ﻿using Button;
 using System;
 
-namespace Room
+namespace RoomArea
 {
     /// <summary>
     /// Interface for the creation of a room
