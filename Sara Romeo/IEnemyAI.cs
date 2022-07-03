@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EnemyAI
+namespace EnemyAIMovement
 {
     /// <summary>
     /// Methods to define enemies behaviors during their turn.

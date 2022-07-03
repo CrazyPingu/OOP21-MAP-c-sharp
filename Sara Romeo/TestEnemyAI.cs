@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using EnemyAI;
+using EnemyAIMovement;
+using Enemy;
 using WeaponObject;
 using RoomArea;
 
@@ -14,7 +15,7 @@ namespace Test
     public class TestEnemyAI
     {
         private readonly WeaponFactory _wf = new WeaponFactory();
-        private readonly EnemyFactory.EnemyFactory _ef = new EnemyFactory.EnemyFactory();
+        private readonly EnemyFactory _ef = new EnemyFactory();
         private readonly IHealthArtefactFactory _hf = new HealthArtefactFactory();
         private readonly IMovementFactory _mf = new MovementFactory();
         private readonly IObstacleFactory _of = new ObstacleFactory();
@@ -23,7 +24,7 @@ namespace Test
         private IEnemyAI _enemyAI;
         private Player _player;
         private SimpleEnemy _enemyAroundArea, _enemyCrossArea;
-        private Room.Room _room;
+        private Room _room;
 
         [SetUp]
         /// Initialize all elements needed.
@@ -31,8 +32,8 @@ namespace Test
         {
             _roomSize = new Tuple<int, int>(10, 4);
             _player = new Player(new ExtendibleMaxLifeSystem(4, 10, 20), _wf.CreateAxe(), _mf.createStepMovement(), "Marcello-test", EntityTexture.PLAYER);
-            _room = new Room.Room(_roomSize, _player, new Tuple<int, int>(2, 1));
-            _enemyAI = new EnemyAI.EnemyAI(_room);
+            _room = new Room(_roomSize, _player, new Tuple<int, int>(2, 1));
+            _enemyAI = new EnemyAI(_room);
             _room.EnemyList.Clear();
             _room.ArtefactList.Clear();
             _room.ObstacleList.Clear();

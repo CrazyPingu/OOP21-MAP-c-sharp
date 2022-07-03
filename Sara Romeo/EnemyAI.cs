@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using Utilities;
+using RoomArea;
 /// <summary>
 /// Implementation of enemies behaviors.
 /// </summary>
-namespace EnemyAI
+namespace EnemyAIMovement
 {
     public class EnemyAI : IEnemyAI
     {
-
-        private Room.Room _room;
+        private Room _room;
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="room">current room</param>
-        public EnemyAI(Room.Room room) => _room = room;
+        public EnemyAI(Room room) => _room = room;
 
         /// <summary>
         /// Updates the room in which the enemy AI is placed.
         /// </summary>
         /// <param name="room">current room</param>
-        public void UpdateAIRoom(Room.Room room) => _room = room;
+        public void UpdateAIRoom(Room room) => _room = room;
 
         /// <inheritdoc />
         public Tuple<int, int> Move(SimpleEnemy enemy)
@@ -29,7 +29,7 @@ namespace EnemyAI
             int distance, minDistance = int.MaxValue;
             foreach (var cell in enemy.getReachableArea(_room.Size).get())
             {
-                distance = CalculateDistanceFromPlayer(cell, _room.Player.getPos());
+                distance = CalculateDistanceFromPlayer(cell, _room.Player.Pos);
                 if (distance < minDistance && !(RoomConstant.CellsOccupated(_room.EnemyList, _room.ArtefactList, _room.ObstacleList, _room.Player, cell)))
                 {
                     newEnemyPos = cell;

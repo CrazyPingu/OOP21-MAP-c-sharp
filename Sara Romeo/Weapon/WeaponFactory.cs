@@ -1,4 +1,5 @@
-﻿namespace WeaponObject
+﻿using Strategy;
+namespace WeaponObject
 {
     /// <summary>
     /// Factory with methods to create different types of weapons.
