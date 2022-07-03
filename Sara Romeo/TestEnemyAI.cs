@@ -1,7 +1,4 @@
 ﻿using NUnit.Framework;
-using EnemyAI;
-using Room;
-using System.Collections.Generic;
 
 namespace Test
 {
@@ -53,8 +50,7 @@ namespace Test
         }
 
         [Test]
-        /// testing of enemy's moving area with different coordinates than player's position
-         
+        /// testing of enemy's moving area with different coordinates than player's position         
         public void PlayerOutside()
         {
             Console.WriteLine("\n-- playerOutside\n");

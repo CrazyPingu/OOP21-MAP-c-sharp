@@ -20,18 +20,29 @@ namespace EnemyAI
         /// <param name="room">current room</param>
         public void UpdateAIRoom(Room.Room room) => _room = room;
 
-
-
-
         /// <inheritdoc />
         public Tuple<int, int> Move(SimpleEnemy enemy)
         {
-            throw new NotImplementedException();
+            Tuple<int, int> newEnemyPos = enemy.getPos();
+            int distance, minDistance = int.MaxValue;
+            foreach (var cell in enemy.getReachableArea(_room.Size).get())
+            {
+                distance = CalculateDistanceFromPlayer(cell, _room.Player.getPos());
+                if (distance < minDistance && !(RoomConstant.cellsOccupated(_room.EnemyList, _room.ArtefactList, _room.ObstacleList, _room.Player, cell)))
+                {
+                    newEnemyPos = cell;
+                    minDistance = distance;
+                }
+            }
+            return newEnemyPos;
         }
+
+
         /// <inheritdoc />
         public bool IsPlayerInAttackArea(SimpleEnemy enemy, Player player, Tuple<int, int> roomSize)
         {
-            throw new NotImplementedException();
+            List<Tuple<int, int>> attackableArea = enemy.getWeapon().getAttackArea(enemy.getPos(), roomSize);
+            return attackableArea.Contains(player.getPos());
         }
 
         /// <summary>
