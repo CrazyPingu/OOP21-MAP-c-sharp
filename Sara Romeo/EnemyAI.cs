@@ -1,4 +1,5 @@
-﻿/// <summary>
+﻿using Room;
+/// <summary>
 /// Implementation of enemies behaviors.
 /// </summary>
 namespace EnemyAI
