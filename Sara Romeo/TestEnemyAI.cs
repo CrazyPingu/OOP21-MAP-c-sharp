@@ -32,7 +32,7 @@ namespace Test
         public void Init()
         {
             _roomSize = new Tuple<int, int>(10, 4);
-            _player = new Player(new Tuple<int, int>(2, 3), new Movement(new AroundArea(1)), "Marcello-test", 2);
+            _player = new Player(new Tuple<int, int>(2, 3), new Movement(new AroundArea(1)), _wf.CreateStick(), "Marcello-test", 2);
             _room = new Room(_roomSize, _player, new Tuple<int, int>(2, 1));
             _enemyAI = new EnemyAI(_room);
             _room.EnemyList.Clear();
@@ -45,15 +45,9 @@ namespace Test
         }
 
         [Test]
-        /// testing of enemy's moving behavior whether there's an obstacle on chosen cell
+        /// testing of enemy's moving behavior whether there's an obstacle on a chosen cell
         public void ObjectInArea()
         {
-            // Console.WriteLine("\n-- objectInArea\n");
-            // _player.setPos(new Tuple<int, int>(2, 3));
-            // _room.ArtefactList.Add(_hf.createBigHealArtefact(new Tuple<int, int>(4, 2)));
-            // _expectedResult.Add(new Tuple<int, int>(4, 1));
-            // _expectedResult.Add(new Tuple<int, int>(5, 2));
-            // ResultsToString(_enemyAI.Move(_enemyAroundArea), _expectedResult);
             _room.ArtefactList.Clear();
             _room.ObstacleList.Add(_of.createPebble(new Tuple<int, int>(4, 2)));
             ResultsToString(_enemyAI.Move(_enemyAroundArea), _expectedResult);

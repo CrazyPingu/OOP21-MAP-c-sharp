@@ -29,7 +29,7 @@ namespace EnemyAIMovement
         {
             Tuple<int, int> newEnemyPos = enemy.Pos;
             int distance, minDistance = _room.Size.Item1 + _room.Size.Item1;
-            foreach (var cell in enemy.ReachableArea(enemy.Pos, _room.Size))
+            foreach (var cell in enemy.ReachableArea(_room.Size))
             {
                 distance = CalculateDistanceFromPlayer(cell, _room.Player.Pos);
                 if (distance < minDistance && !(RoomConstant.CellsOccupated(_room.EnemyList, _room.ArtefactList, _room.ObstacleList, _room.Player, cell)))
