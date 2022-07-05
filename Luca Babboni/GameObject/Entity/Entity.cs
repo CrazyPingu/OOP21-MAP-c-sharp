@@ -1,7 +1,8 @@
 ﻿using System;
 using MovementStrategy; 
 using System.Collections.Generic;
-using GameObject; 
+using GameObject;
+using WeaponObject;
 
 namespace EntityObject
 {
@@ -15,11 +16,12 @@ namespace EntityObject
     /// This class is only partially traslated from jata to c#. It will implement only the movement 
     /// feature
     /// </summary>
-    public class Entity : IMovingObject
+    public class Entity : IMovingObject, IWeaponizedObject 
     {
         private Tuple<int, int> _pos;
-        private string _name;
-        private IMovement _movement;
+        private readonly string _name;
+        private readonly IMovement _movement;
+        private  IWeapon _weapon;
 
         /// <summary>
         /// create a new istance of an Entity class. 
@@ -27,13 +29,15 @@ namespace EntityObject
         /// <param name="name">The name of the entity</param>
         /// <param name="pos">The position of the entity</param>
         /// <param name="movement">The movement sistem of the entity</param>
-        public Entity(string name, Tuple<int, int> pos, IMovement movement)
-        { 
+        /// <param name="weapon">The weapon the entity is holding</param>
+        public Entity(string name, Tuple<int, int> pos, IMovement movement, IWeapon weapon)
+        {
             _pos = pos;
             _name = name;
             _movement = movement;
+            _weapon = weapon;
         }
-        
+
         /// <summary>
         /// The current Entity position
         /// </summary>
@@ -43,6 +47,8 @@ namespace EntityObject
         /// The name of the entity
         /// </summary>
         public string Name => _name;
+
+        public IWeapon Weapon { get => _weapon; set => _weapon = value; }
 
         public List<Tuple<int, int>>? ReachableArea(Tuple<int, int> pos, Tuple<int, int> size)
         {

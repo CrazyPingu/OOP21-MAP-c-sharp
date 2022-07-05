@@ -1,9 +1,6 @@
 ﻿using MovementStrategy;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using WeaponObject; 
 
 namespace EntityObject
 {
@@ -20,6 +17,7 @@ namespace EntityObject
         /// <param name="pos">The starting enemy position</param>
         /// <param name="movement">The position of the entity</param>
         /// <param name="name">The name of the entity</param>
-        public SimpleEnemy(Tuple<int, int> pos, IMovement movement, string name) : base(name, pos, movement) { }
+        public SimpleEnemy(Tuple<int, int> pos, IMovement movement, 
+            IWeapon weapon,  string name) : base(name, pos, movement, weapon) { }
     }
 }

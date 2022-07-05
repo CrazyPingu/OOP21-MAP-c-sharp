@@ -1,9 +1,6 @@
 ﻿using MovementStrategy;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using WeaponObject;
 
 namespace EntityObject
 {
@@ -20,15 +17,18 @@ namespace EntityObject
         /// Represent the number of action the player can perform in a turn. 
         /// </summary>
         public int ActionNumber { get; set; }
-        
+
         /// <summary>
         /// Used to create a class player
         /// </summary>
         /// <param name="pos">The starting player position</param>
         /// <param name="movement">The movement system the player will use </param>
+        /// <param name="weapon">The weapon the player start with</param>
         /// <param name="name">The name of the player</param>
         /// <param name="initialActionNumber">The starting amount of action the player can perform in a turn</param>
-        public Player(Tuple<int, int> pos, IMovement movement, string name, int initialActionNumber) : base(name, pos, movement)
+
+        public Player(Tuple<int, int> pos, IMovement movement, IWeapon weapon,
+            string name, int initialActionNumber) : base(name, pos, movement, weapon)
         {
             ActionNumber = initialActionNumber;
         } 
