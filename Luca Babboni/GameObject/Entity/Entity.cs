@@ -50,9 +50,9 @@ namespace EntityObject
 
         public IWeapon Weapon { get => _weapon; set => _weapon = value; }
 
-        public List<Tuple<int, int>>? ReachableArea(Tuple<int, int> pos, Tuple<int, int> size)
+        public List<Tuple<int, int>>? ReachableArea(Tuple<int, int> size)
         {
-            return _movement.ReachableCells(pos, size);
+            return _movement.ReachableCells(_pos, size);
         }
     }
 }
