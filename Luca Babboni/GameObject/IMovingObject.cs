@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace oop21_MAP_Csharp.OOP21_MAP_c_sharp.Luca_Babboni.GameObject
+namespace GameObject
 {
     /// <summary>
     /// Declare the common method for the game_oject that can change their position

@@ -1,11 +1,9 @@
 ﻿using System;
 using MovementStrategy; 
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GameObject; 
 
-namespace oop21_MAP_Csharp.OOP21_MAP_c_sharp.Luca_Babboni.GameObject.Entity
+namespace EntityObject
 {
     /// <summary>
     ///Class to incapsulate an entity behaviur. This class will be extends to create
@@ -17,7 +15,7 @@ namespace oop21_MAP_Csharp.OOP21_MAP_c_sharp.Luca_Babboni.GameObject.Entity
     /// This class is only partially traslated from jata to c#. It will implement only the movement 
     /// feature
     /// </summary>
-    internal class Entity : IMovingObject
+    public class Entity : IMovingObject
     {
         private Tuple<int, int> _pos;
         private string _name;
