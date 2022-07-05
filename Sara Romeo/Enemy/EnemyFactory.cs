@@ -1,6 +1,8 @@
 ﻿using System;
-using Utilities;
 using WeaponObject;
+using EntityObject;
+using Strategy;
+using MovementStrategy;
 namespace Enemy
 {
     /// <summary>
@@ -11,36 +13,31 @@ namespace Enemy
         /// <inheritdoc/>
         public SimpleEnemy CreateZombieStick(Tuple<int, int> pos)
         {
-            return new SimpleEnemy(new SimpleLifeSystem(IEnemyFactory.Health.LOW_HEALTH), pos, new WeaponFactory().CreateStick(),
-                new MovementFactory().CreateStepMovement(), "zombie stick", EntityTexture.ZOMBIE_STICK);
+            return new SimpleEnemy(pos, new WeaponFactory().CreateStick(), new Movement(new AroundArea(1)), "zombie stick");
         }
 
         /// <inheritdoc/>
         public SimpleEnemy CreateZombieAxe(Tuple<int, int> pos)
         {
-            return new SimpleEnemy(new SimpleLifeSystem(IEnemyFactory.Health.LOW_HEALTH), pos, new WeaponFactory().CreateAxe(),
-                new MovementFactory().CreateStepMovement(), "zombie axe", EntityTexture.ZOMBIE_AXE);
+            return new SimpleEnemy(pos, new WeaponFactory().CreateAxe(), new Movement(new AroundArea(1)), "zombie axe");
         }
 
         /// <inheritdoc/>
         public SimpleEnemy CreateZombieDagger(Tuple<int, int> pos)
         {
-            return new SimpleEnemy(new SimpleLifeSystem(IEnemyFactory.Health.MID_HEALTH), pos, new WeaponFactory().CreateDagger(),
-                new MovementFactory().CreateRunMovement(), "zombie dagger", EntityTexture.ZOMBIE_DAGGER);
+            return new SimpleEnemy(pos, new WeaponFactory().CreateDagger(), new Movement(new CrossArea(2)), "zombie dagger");
         }
 
         /// <inheritdoc/>
         public SimpleEnemy CreateZombieTube(Tuple<int, int> pos)
         {
-            return new SimpleEnemy(new SimpleLifeSystem(IEnemyFactory.Health.HIGH_HEALTH), pos, new WeaponFactory().CreateTube(),
-                new MovementFactory().CreateStepMovement(), "zombie tube", EntityTexture.ZOMBIE_TUBE);
+            return new SimpleEnemy(pos, new WeaponFactory().CreateTube(), new Movement(new AroundArea(1)), "zombie tube");
         }
 
         /// <inheritdoc/>
         public SimpleEnemy CreateZombieGun(Tuple<int, int> pos)
         {
-            return new SimpleEnemy(new SimpleLifeSystem(IEnemyFactory.Health.HIGH_HEALTH), pos, new WeaponFactory().CreateGun(),
-                new MovementFactory().CreateRunMovement(), "zombie gun", EntityTexture.ZOMBIE_GUN);
+            return new SimpleEnemy(pos, new WeaponFactory().CreateGun(), new Movement(new CrossArea(2)), "zombie gun");
         }
     }
 }
