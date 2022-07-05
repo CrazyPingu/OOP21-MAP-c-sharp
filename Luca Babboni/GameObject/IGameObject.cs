@@ -14,7 +14,7 @@ namespace oop21_MAP_Csharp.OOP21_MAP_c_sharp.Luca_Babboni.GameObject
     {
         Tuple<int, int> Pos { get; }
 
-        String name { get; } 
+        string Name { get; } 
 
     }
 }
