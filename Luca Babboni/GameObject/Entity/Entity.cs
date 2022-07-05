@@ -24,9 +24,9 @@ namespace EntityObject
         /// <summary>
         /// create a new istance of an Entity class. 
         /// </summary>
-        /// <param name="name">the name of the entity</param>
-        /// <param name="pos">is the position of the entity</param>
-        /// <param name="movement">is the movement sistem of the entity</param>
+        /// <param name="name">The name of the entity</param>
+        /// <param name="pos">The position of the entity</param>
+        /// <param name="movement">The movement sistem of the entity</param>
         public Entity(string name, Tuple<int, int> pos, IMovement movement)
         { 
             _pos = pos;
