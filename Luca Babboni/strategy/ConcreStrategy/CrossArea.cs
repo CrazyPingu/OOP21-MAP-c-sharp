@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Utilities; 
 
 namespace Strategy
 {
-    public class CrossArea : IStrategy
+	/// <summary>
+	/// Concrete strategy. Implements an algorithm that returns a cross shaped area around the given coordinate.
+	/// </summary>
+	public class CrossArea : IStrategy
     {
 		private readonly int _distance;
 		public CrossArea(int distance)
@@ -22,7 +23,7 @@ namespace Strategy
 			for (int i = pos.Item1 - _distance; i <= pos.Item1 + _distance; i++)
 			{
 				cellToAdd = new Tuple<int, int>(i, pos.Item2);
-				if (!pos.Equals(cellToAdd) && PosInGrid.checkPosInGrid(cellToAdd, size))
+				if (!pos.Equals(cellToAdd) && PosInGrid.CheckPosInGrid(cellToAdd, size))
 				{
 					reachableCells.Add(cellToAdd);
 				}
@@ -31,7 +32,7 @@ namespace Strategy
 			for (int i = pos.Item2 - _distance; i <= pos.Item2 + _distance; i++)
 			{
 				cellToAdd = new Tuple<int, int>(pos.Item1, i);
-				if (!pos.Equals(cellToAdd) && PosInGrid.checkPosInGrid(cellToAdd, size))
+				if (!pos.Equals(cellToAdd) && PosInGrid.CheckPosInGrid(cellToAdd, size))
 				{
 					reachableCells.Add(cellToAdd);
 				}

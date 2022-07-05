@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Utilities; 
 
 namespace Strategy
-{
+{   /// <summary>
+    /// Concrete strategy. Implements an algorithm that returns the area around chosen position.
+    /// </summary>
     public class AroundArea : IStrategy
     {
         private readonly int _distance;
@@ -36,5 +36,5 @@ namespace Strategy
             return reachableCells;
         }
     }
-    }
 }
+
