@@ -22,7 +22,7 @@ namespace EntityObject
         public int ActionNumber { get; set; }
         
         /// <summary>
-        /// Used to create an class player
+        /// Used to create a class player
         /// </summary>
         /// <param name="pos">The starting player position</param>
         /// <param name="movement">The movement system the player will use </param>
