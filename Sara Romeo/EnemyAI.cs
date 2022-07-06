@@ -32,7 +32,7 @@ namespace EnemyAIMovement
             foreach (var cell in enemy.ReachableArea(_room.Size))
             {
                 distance = CalculateDistanceFromPlayer(cell, _room.Player.Pos);
-                if (distance < minDistance && !(RoomConstant.CellsOccupated(_room.EnemyList, _room.ArtefactList, _room.ObstacleList, _room.Player, cell)))
+                if (distance < minDistance && !(RoomConstant.CellsOccupated(_room.ObstacleList, _room.Player, _room.EnemyList, cell)))
                 {
                     newEnemyPos = cell;
                     minDistance = distance;

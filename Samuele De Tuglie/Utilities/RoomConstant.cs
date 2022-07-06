@@ -79,7 +79,7 @@ namespace Utilities
         /// <param name="enemyList">The list of the enemy of the game</param>
         /// <param name="pos">The position to check in</param>
         /// <returns>True if the cells is occupated otherwise false</returns>
-        public static bool? CellsOccupated(List<Obstacle> obstacleList, Player player, List<SimpleEnemy> enemyList, Tuple<int, int> pos)
+        public static bool CellsOccupated(List<Obstacle> obstacleList, Player player, List<SimpleEnemy> enemyList, Tuple<int, int> pos)
         {
             return player.Pos.Equals(pos) || SearchEnemy(pos, enemyList) != null || SearchObstacle(pos, obstacleList) != null;
         }

@@ -8,6 +8,7 @@ using RoomArea;
 using MovementStrategy;
 using Strategy;
 using EntityObject;
+using ObstacleObject;
 
 namespace Test
 {
@@ -19,7 +20,7 @@ namespace Test
     {
         private readonly WeaponFactory _wf = new WeaponFactory();
         private readonly EnemyFactory _ef = new EnemyFactory();
-        private readonly IObstacleFactory _of = new ObstacleFactory();
+        private readonly IObstacleFactory _of = new ObstacleFactoryImpl();
         private Tuple<int, int> _roomSize;
         private List<Tuple<int, int>> _expectedResult = new List<Tuple<int, int>>();
         private IEnemyAI _enemyAI;
@@ -36,7 +37,6 @@ namespace Test
             _room = new Room(_roomSize, _player, new Tuple<int, int>(2, 1));
             _enemyAI = new EnemyAI(_room);
             _room.EnemyList.Clear();
-            _room.ArtefactList.Clear();
             _room.ObstacleList.Clear();
             _enemyAroundArea = _ef.CreateZombieStick(new Tuple<int, int>(5, 1));
             _room.EnemyList.Add(_enemyAroundArea);
@@ -48,8 +48,13 @@ namespace Test
         /// testing of enemy's moving behavior whether there's an obstacle on a chosen cell
         public void ObjectInArea()
         {
-            _room.ArtefactList.Clear();
-            _room.ObstacleList.Add(_of.createPebble(new Tuple<int, int>(4, 2)));
+            _player.Pos = new Tuple<int, int>(2, 3);
+            _room.ObstacleList.Add(_of.CreatePebble(new Tuple<int, int>(4, 2)));
+            
+            _expectedResult.Add(new Tuple<int, int>(4, 1));
+            _expectedResult.Add(new Tuple<int, int>(5, 2));
+
+            
             ResultsToString(_enemyAI.Move(_enemyAroundArea), _expectedResult);
         }
 
