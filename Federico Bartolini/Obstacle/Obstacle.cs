@@ -13,7 +13,8 @@ namespace ObstacleObject
     /// The class of the obstacle created in Game
     /// </summary>
     public class Obstacle : IGameObject
-    { 
+    {
+        public Obstacle(Tuple<int, int> pos, string v, Image image) { }
 
         /// <summary>
         ///  The position of the obstacle
