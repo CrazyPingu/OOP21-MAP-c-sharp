@@ -30,8 +30,7 @@ namespace RoomArea
         /// <inheritdoc/>
         public Room CreateMediumRoom()
         {
-            return new MediumRoom(new Tuple<int, int>((RoomConstant.MAX_DIM.Item1 + RoomConstant.MIN_DIM.Item1) / 2,
-                (RoomConstant.MAX_DIM.Item2 + RoomConstant.MIN_DIM.Item2) / 2), _player);
+            return new MediumRoom(RoomConstant.MED_DIM, _player);
         }
 
         /// <inheritdoc/>

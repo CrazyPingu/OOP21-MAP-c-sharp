@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using EntityObject;
 using ObstacleObject;
+using RandomGenerator;
 
 namespace RoomArea
 {
@@ -28,8 +29,8 @@ namespace RoomArea
             Player = player;
             Player.Pos = newPosPlayer;
             Size = size;
-            EnemyList = new();
-            ObstacleList = new();
+            EnemyList = new EnemyListGenerator(size, player);
+            ObstacleList = new ObstacleListGenerator(size, player, EnemyList);
             Door = GenerateDoor();
         }
 
