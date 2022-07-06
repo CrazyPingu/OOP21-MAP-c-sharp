@@ -48,12 +48,12 @@ namespace Test
         /// testing of enemy's moving behavior whether there's an obstacle on a chosen cell
         public void ObjectInArea()
         {
+            Console.WriteLine("\n-- objectInArea\n");
             _player.Pos = new Tuple<int, int>(2, 3);
             _room.ObstacleList.Add(_of.CreatePebble(new Tuple<int, int>(4, 2)));
             
             _expectedResult.Add(new Tuple<int, int>(4, 1));
             _expectedResult.Add(new Tuple<int, int>(5, 2));
-
             
             ResultsToString(_enemyAI.Move(_enemyAroundArea), _expectedResult);
         }
