@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Utilities;
 using RoomArea;
+using EntityObject;
 
 namespace EnemyAIMovement
 {
@@ -26,12 +27,12 @@ namespace EnemyAIMovement
         /// <inheritdoc/>
         public Tuple<int, int> Move(SimpleEnemy enemy)
         {
-            Tuple<int, int> newEnemyPos = enemy.getPos();
-            int distance, minDistance = int.MaxValue;
-            foreach (var cell in enemy.getReachableArea(_room.Size).get())
+            Tuple<int, int> newEnemyPos = enemy.Pos;
+            int distance, minDistance = _room.Size.Item1 + _room.Size.Item1;
+            foreach (var cell in enemy.ReachableArea(_room.Size))
             {
                 distance = CalculateDistanceFromPlayer(cell, _room.Player.Pos);
-                if (distance < minDistance && !(RoomConstant.CellsOccupated(_room.EnemyList, _room.ArtefactList, _room.ObstacleList, _room.Player, cell)))
+                if (distance < minDistance && !(RoomConstant.CellsOccupated(_room.ObstacleList, _room.Player, _room.EnemyList, cell)))
                 {
                     newEnemyPos = cell;
                     minDistance = distance;
@@ -44,8 +45,8 @@ namespace EnemyAIMovement
         /// <inheritdoc/>
         public bool IsPlayerInAttackArea(SimpleEnemy enemy, Player player, Tuple<int, int> roomSize)
         {
-            List<Tuple<int, int>> attackableArea = enemy.getWeapon().getAttackArea(enemy.getPos(), roomSize);
-            return attackableArea.Contains(player.getPos());
+            List<Tuple<int, int>> attackableArea = enemy.Weapon.AttackArea(enemy.Pos, roomSize);
+            return attackableArea.Contains(player.Pos);
         }
 
         /// <summary>

@@ -28,6 +28,8 @@ namespace RoomArea
             Player = player;
             Player.Pos = newPosPlayer;
             Size = size;
+            EnemyList = new();
+            ObstacleList = new();
             Door = GenerateDoor();
         }
 

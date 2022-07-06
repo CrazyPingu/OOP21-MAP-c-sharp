@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Strategy;
 namespace WeaponObject
 {
     /// <summary>
@@ -9,13 +10,13 @@ namespace WeaponObject
     {
         public IWeaponFactory.Damage Damage { get; }
         public string Name { get; }
-        private readonly Strategy _shootingStrategy;
+        private readonly IStrategy _shootingStrategy;
 
         /**
          * @param damage           is the damage that the weapon can inflict
          * @param shootingStrategy is the area within the weapon can reach
          */
-        public Weapon(IWeaponFactory.Damage damage, string name, Strategy shootingStrategy)
+        public Weapon(IWeaponFactory.Damage damage, string name, IStrategy shootingStrategy)
         {
             Damage = damage;
             Name = name;
@@ -23,9 +24,9 @@ namespace WeaponObject
         }
 
         /// <inheritdoc/>
-        public List<Tuple<int, int>> getAttackArea(Tuple<int, int> pos, Tuple<int, int> size)
+        public List<Tuple<int, int>> AttackArea(Tuple<int, int> pos, Tuple<int, int> size)
         {
-            return _shootingStrategy.execute(pos, size);
+            return _shootingStrategy.Execute(pos, size);
         }
     }
 }
