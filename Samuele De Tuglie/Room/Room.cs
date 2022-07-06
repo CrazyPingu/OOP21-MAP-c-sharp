@@ -55,7 +55,7 @@ namespace RoomArea
         /// <inheritdoc />
         public void RemoveObject(Tuple<int, int> pos)
         {
-            SimpleEnemy ? tmp = RoomConstant.SearchEnemy(pos, EnemyList);
+            SimpleEnemy? tmp = RoomConstant.SearchEnemy(pos, EnemyList);
             if (tmp != null)
             {
                 EnemyList.Remove(tmp);
@@ -69,10 +69,10 @@ namespace RoomArea
         /// <inheritdoc />
         public void UpdatePosition(Tuple<int, int> oldPos, Tuple<int, int> newPos)
         {
-            SimpleEnemy ? tmp = RoomConstant.SearchEnemy(oldPos, EnemyList);
+            SimpleEnemy? tmp = RoomConstant.SearchEnemy(oldPos, EnemyList);
             if (tmp != null)
             {
-               tmp.Pos = newPos;
+                tmp.Pos = newPos;
             }
             else if (Player.Pos.Equals(oldPos))
             {
