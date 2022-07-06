@@ -15,11 +15,11 @@ namespace ObstacleObject
         /// <summary>
         ///  The position of the obstacle
         /// </summary>
-        Tuple<int, int> IGameObject.Pos { get; }
+        public Tuple<int, int> Pos { get; }
 
         /// <summary>
         /// The name of the obstacle
         /// </summary>
-        string IGameObject.Name { get; }
+        public string Name { get; }
     }
 }
