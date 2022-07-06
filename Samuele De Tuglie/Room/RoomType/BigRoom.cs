@@ -7,7 +7,7 @@ namespace RoomType
     /// <summary>
     /// Biggest room possible
     /// </summary>
-    internal class BigRoom : Room
+    public class BigRoom : Room
     {
         /// <summary>
         /// Constructor of the big room

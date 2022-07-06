@@ -1,5 +1,4 @@
 ﻿using Utilities;
-using Button;
 using System;
 using System.Collections.Generic;
 using EntityObject;
@@ -13,7 +12,6 @@ namespace RoomArea
     public class Room : IRoom
     {
         public Tuple<int, int> Size { get; }
-        public Dictionary<Tuple<int, int>, GameButton> Cells { get; }
         public Player Player { get; set; }
         public List<Tuple<int, int>> Door { get; }
         public List<SimpleEnemy> EnemyList { get; set; }
@@ -31,7 +29,6 @@ namespace RoomArea
             Player.Pos = newPosPlayer;
             Size = size;
             Door = GenerateDoor();
-            Cells = new Dictionary<Tuple<int, int>, GameButton>();
         }
 
         /// <summary>
@@ -58,7 +55,7 @@ namespace RoomArea
         /// <inheritdoc />
         public void RemoveObject(Tuple<int, int> pos)
         {
-            SimpleEnemy ? tmp = RoomConstant.SearchEnemy(pos, EnemyList);
+            SimpleEnemy? tmp = RoomConstant.SearchEnemy(pos, EnemyList);
             if (tmp != null)
             {
                 EnemyList.Remove(tmp);
@@ -72,21 +69,15 @@ namespace RoomArea
         /// <inheritdoc />
         public void UpdatePosition(Tuple<int, int> oldPos, Tuple<int, int> newPos)
         {
-            SimpleEnemy ? tmp = RoomConstant.SearchEnemy(oldPos, EnemyList);
+            SimpleEnemy? tmp = RoomConstant.SearchEnemy(oldPos, EnemyList);
             if (tmp != null)
             {
-               tmp.Pos = newPos;
+                tmp.Pos = newPos;
             }
             else if (Player.Pos.Equals(oldPos))
             {
                 this.Player.Pos = newPos;
             }
-        }
-        
-        /// <inheritdoc />
-        public void AddButtonToCells(Tuple<int, int> pos, GameButton button)
-        {
-            Cells.Add(pos, button);
         }
     }
 }
