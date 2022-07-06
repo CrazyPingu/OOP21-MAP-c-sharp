@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using GameObject;
 
 namespace Button
 {
@@ -72,10 +73,10 @@ namespace Button
         }
 
         /// <summary>
-        /// Draw the given Game Object
+        /// Method to set the image of the button
         /// </summary>
-        /// <param name="object">The game object to draw</param>
-        public void DrawGameObject(GameObject obj)
+        /// <param name="obj">The game object to draw</param>
+        public void DrawGameObject(IGameObject obj)
         {
             _image = obj.Image;
         }

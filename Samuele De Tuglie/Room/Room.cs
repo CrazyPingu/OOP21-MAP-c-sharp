@@ -2,6 +2,8 @@
 using Button;
 using System;
 using System.Collections.Generic;
+using EntityObject;
+using ObstacleObject;
 
 namespace RoomArea
 {
@@ -12,10 +14,9 @@ namespace RoomArea
     {
         public Tuple<int, int> Size { get; }
         public Dictionary<Tuple<int, int>, GameButton> Cells { get; }
-        public Player Player { get; }
+        public Player Player { get; set; }
         public List<Tuple<int, int>> Door { get; }
         public List<SimpleEnemy> EnemyList { get; set; }
-        public List<Artefact> ArtefactList { get; set; }
         public List<Obstacle> ObstacleList { get; set; }
 
         /// <summary>
@@ -24,10 +25,11 @@ namespace RoomArea
         /// <param name="size">The size of the room</param>
         /// <param name="Player">The player of the game</param>
         /// <param name="newPosPlayer">The new position of the player</param>
-        public Room(Tuple<int, int> size, Player Player, Tuple<int, int> newPosPlayer)
+        public Room(Tuple<int, int> size, Player player, Tuple<int, int> newPosPlayer)
         {
+            Player = player;
+            Player.Pos = newPosPlayer;
             Size = size;
-            Player = Player;
             Door = GenerateDoor();
             Cells = new Dictionary<Tuple<int, int>, GameButton>();
         }
@@ -56,13 +58,10 @@ namespace RoomArea
         /// <inheritdoc />
         public void RemoveObject(Tuple<int, int> pos)
         {
-            if (RoomConstant.SearchEnemy(pos, EnemyList) != null)
+            SimpleEnemy ? tmp = RoomConstant.SearchEnemy(pos, EnemyList);
+            if (tmp != null)
             {
-                EnemyList.Remove(RoomConstant.SearchEnemy(pos, EnemyList));
-            }
-            else if (RoomConstant.SearchArtefact(pos, ArtefactList) != null)
-            {
-                ArtefactList.Remove(RoomConstant.SearchArtefact(pos, ArtefactList));
+                EnemyList.Remove(tmp);
             }
             else if (Player.Pos.Equals(pos))
             {
@@ -73,9 +72,10 @@ namespace RoomArea
         /// <inheritdoc />
         public void UpdatePosition(Tuple<int, int> oldPos, Tuple<int, int> newPos)
         {
-            if (RoomConstant.SearchEnemy(oldPos, EnemyList) != null)
+            SimpleEnemy ? tmp = RoomConstant.SearchEnemy(oldPos, EnemyList);
+            if (tmp != null)
             {
-                RoomConstant.SearchEnemy(oldPos, EnemyList).Pos = newPos;
+               tmp.Pos = newPos;
             }
             else if (Player.Pos.Equals(oldPos))
             {

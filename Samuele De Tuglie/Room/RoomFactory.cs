@@ -1,6 +1,7 @@
 ﻿using System;
 using Utilities;
 using RoomType;
+using EntityObject;
 
 namespace RoomArea
 {
