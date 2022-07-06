@@ -7,6 +7,9 @@ using ObstacleObject;
 
 namespace Utilities
 {
+    /// <summary>
+    /// Method and constant of the room 
+    /// </summary>
     public class RoomConstant
     {
         public static readonly Color ATTACK_HIGHLIGHT = Color.Red;
@@ -53,7 +56,7 @@ namespace Utilities
         /// <param name="pos">The position of the wanted obstacle</param>
         /// <param name="obstacleList">The List to search in</param>
         /// <returns>The obstacle at that position otherwise null</returns>
-        public static Obstacle ? SearchObstacle(Tuple<int, int> pos, List<Obstacle> obstacleList)
+        public static Obstacle? SearchObstacle(Tuple<int, int> pos, List<Obstacle> obstacleList)
         {
             if (obstacleList != null && obstacleList.Any())
             {
