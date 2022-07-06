@@ -1,5 +1,4 @@
 ﻿using Utilities;
-using Button;
 using System;
 using System.Collections.Generic;
 using EntityObject;
@@ -13,7 +12,6 @@ namespace RoomArea
     public class Room : IRoom
     {
         public Tuple<int, int> Size { get; }
-        public Dictionary<Tuple<int, int>, GameButton> Cells { get; }
         public Player Player { get; set; }
         public List<Tuple<int, int>> Door { get; }
         public List<SimpleEnemy> EnemyList { get; set; }
@@ -31,7 +29,6 @@ namespace RoomArea
             Player.Pos = newPosPlayer;
             Size = size;
             Door = GenerateDoor();
-            Cells = new Dictionary<Tuple<int, int>, GameButton>();
         }
 
         /// <summary>
@@ -81,12 +78,6 @@ namespace RoomArea
             {
                 this.Player.Pos = newPos;
             }
-        }
-        
-        /// <inheritdoc />
-        public void AddButtonToCells(Tuple<int, int> pos, GameButton button)
-        {
-            Cells.Add(pos, button);
         }
     }
 }

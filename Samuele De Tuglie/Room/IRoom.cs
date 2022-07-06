@@ -1,5 +1,4 @@
-﻿using Button;
-using System;
+﻿using System;
 
 namespace RoomArea
 {
@@ -13,13 +12,6 @@ namespace RoomArea
         /// </summary>
         /// <returns>True if the player is on the door otherwise false</returns>
         bool PlayerOnDoor();
-
-        /// <summary>
-        /// Method to add a button to the grid
-        /// </summary>
-        /// <param name="pos">The position of the button</param>
-        /// <param name="button">The button to be added</param>
-        void AddButtonToCells(Tuple<int, int> pos, GameButton button);
 
         /// <summary>
         /// Method to remove an object from the game

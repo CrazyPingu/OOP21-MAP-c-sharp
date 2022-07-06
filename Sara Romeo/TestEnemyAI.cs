@@ -18,11 +18,11 @@ namespace Test
     [TestFixture]
     public class TestEnemyAI
     {
-        private readonly WeaponFactory _wf = new WeaponFactory();
-        private readonly EnemyFactory _ef = new EnemyFactory();
+        private readonly IWeaponFactory _wf = new WeaponFactory();
+        private readonly IEnemyFactory _ef = new EnemyFactory();
         private readonly IObstacleFactory _of = new ObstacleFactoryImpl();
         private Tuple<int, int> _roomSize;
-        private List<Tuple<int, int>> _expectedResult = new List<Tuple<int, int>>();
+        private List<Tuple<int, int>> _expectedResult = new();
         private IEnemyAI _enemyAI;
         private Player _player;
         private SimpleEnemy _enemyAroundArea, _enemyCrossArea;
