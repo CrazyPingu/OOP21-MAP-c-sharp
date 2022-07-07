@@ -32,7 +32,26 @@ namespace RandomGenerator
                 {
                     pos = new(_rand.Next(0, size.Item1 - 2), _rand.Next(0, size.Item2));
                 } while (RoomConstant.CellsOccupated(this, player, enemyList, pos));
-                Add((Obstacle)_method[_maxObstacle].Invoke(_of, new object[] { pos }));
+                //Add((Obstacle)_method[_rand.Next(0, _maxObstacle)].Invoke(_of, new object[] { pos }));
+                Add(RandomObstacle(pos));
+            }
+        }
+
+        /// <summary>
+        /// Method to generate a random obstacle
+        /// </summary>
+        /// <param name="pos">The position of the obstacle</param>
+        /// <returns>A random obstacle object</returns>
+        private Obstacle RandomObstacle(Tuple<int, int> pos)
+        {
+            int num = _rand.Next(0, _maxObstacle);
+            if (num == 0)
+            {
+                return _of.CreateRock(pos);
+            }
+            else
+            {
+                return _of.CreatePebble(pos);
             }
         }
     }

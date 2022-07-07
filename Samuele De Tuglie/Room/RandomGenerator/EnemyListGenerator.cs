@@ -33,7 +33,38 @@ namespace RandomGenerator
                         RoomConstant.FORBIDDEN_ZOMBIE_SPAWN, size.Item1)
                         , _rand.Next(0, size.Item2));
                 } while (RoomConstant.CellsOccupated(null, player, this, pos));
-                Add((SimpleEnemy)_method[_maxEnemy].Invoke(_ef, new object[] { pos }));
+                //Add((SimpleEnemy)_method[_rand.Next(0, _maxEnemy)].Invoke(_ef, new object[] { pos }));
+                Add(RandomEnemy(pos));
+            }
+        }
+
+        /// <summary>
+        /// Method to generate a random enemy
+        /// </summary>
+        /// <param name="pos">The position of the enemy</param>
+        /// <returns>A random SimpleEnemy object</returns>
+        private SimpleEnemy RandomEnemy(Tuple<int, int> pos)
+        {
+            int num = _rand.Next(0, _maxEnemy);
+            if(num == 0)
+            {
+                return _ef.CreateZombieTube(pos);
+            }
+            else if (num == 1)
+            {
+                return _ef.CreateZombieDagger(pos);
+            }
+            else if (num == 2)
+            {
+                return _ef.CreateZombieGun(pos);
+            }
+            else if (num == 3)
+            {
+                return _ef.CreateZombieAxe(pos);
+            }
+            else
+            {
+                return _ef.CreateZombieStick(pos);
             }
         }
     }
