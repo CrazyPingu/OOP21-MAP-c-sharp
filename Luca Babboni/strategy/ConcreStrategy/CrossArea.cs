@@ -10,6 +10,10 @@ namespace Strategy
 	public class CrossArea : IStrategy
     {
 		private readonly int _distance;
+		/// <summary>
+		/// Create an istance of the cross area strategy.
+		/// </summary>
+		/// <param name="distance">Distance is how far from around area can reach</param>
 		public CrossArea(int distance)
 		{
 			_distance = distance;
