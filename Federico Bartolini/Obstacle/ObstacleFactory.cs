@@ -6,7 +6,7 @@ namespace ObstacleObject
     /// <summary>
     /// The class that implements the interface ObstacleFactory
     /// </summary>
-    public class OstacleFactory : IObstacleFactory
+    public class ObstacleFactory : IObstacleFactory
     {
         /// <inheritdoc/>
         public Obstacle CreateRock(Tuple<int, int> pos)
