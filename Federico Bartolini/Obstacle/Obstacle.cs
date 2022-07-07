@@ -10,7 +10,6 @@ namespace ObstacleObject
     /// </summary>
     public class Obstacle : IGameObject
     {
-        public Obstacle(Tuple<int, int> pos, string v, Image image) { }
 
         /// <summary>
         ///  The position of the obstacle
@@ -21,5 +20,15 @@ namespace ObstacleObject
         /// The name of the obstacle
         /// </summary>
         public string Name { get; }
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="pos"> position of the obstacle</param>
+        /// <param name="name">name of the obstacle</param>
+        public Obstacle(Tuple<int, int> pos, string name)
+        {
+            Pos = pos;
+            Name = name;
+        }
     }
 }
