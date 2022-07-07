@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using NUnit.Framework;
-using EnemyAIMovement;
-using Enemy;
-using WeaponObject;
+﻿using NUnit.Framework;
 using RoomArea;
-using MovementStrategy;
-using Strategy;
-using EntityObject;
 using Utilities;
 
 namespace Test
