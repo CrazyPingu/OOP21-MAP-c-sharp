@@ -20,7 +20,7 @@ namespace Test
     {
         private readonly IWeaponFactory _wf = new WeaponFactory();
         private readonly IEnemyFactory _ef = new EnemyFactory();
-        private readonly IObstacleFactory _of = new OstacleFactory();
+        private readonly IObstacleFactory _of = new ObstacleFactory();
         private Tuple<int, int> _roomSize;
         private List<Tuple<int, int>> _expectedResult = new();
         private IEnemyAI _enemyAI;
