@@ -28,7 +28,7 @@ namespace Utilities
         public static readonly Tuple<int, int> MED_DIM = new((MAX_DIM.Item1 + MIN_DIM.Item1) / 2,
                 (MAX_DIM.Item2 + MIN_DIM.Item2) / 2);
 
-        public const Image BUTTON_IMAGE = null;
+        public static readonly int SPAWNING_RATIO = (MAX_DIM.Item1 + MIN_DIM.Item1) / 2 + (MAX_DIM.Item2 + MIN_DIM.Item2) / 2;
 
         private RoomConstant() { }
 
