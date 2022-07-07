@@ -10,10 +10,9 @@ namespace Test
     /// </summary>
     [TestFixture]
     public class AroundAreaTest
-    {
-        private Tuple<int, int> _size, _pos;
+    { 
         private readonly IStrategy _aroundAreaStrategy = new AroundArea(1);
-        private readonly List<Tuple<int, int>> _expectedResults = new List<Tuple<int, int>>();
+        private readonly List<Tuple<int, int>> _expectedResults = new ();
 
         /// <summary>
         /// Initialize grid size and clear the expected result
@@ -21,7 +20,6 @@ namespace Test
         [SetUp]
         public void Init()
         {
-            _size = new Tuple<int, int>(3, 3);
             _expectedResults.Clear();
         }
 
@@ -31,7 +29,8 @@ namespace Test
         [Test] 
         public void InnerGridTest()
         {
-            _pos = new Tuple<int, int>(1, 1);
+            Tuple<int, int>  pos = new(1, 1);
+            Tuple<int, int>  size = new(3, 3);
 
             _expectedResults.Add(new Tuple<int, int>(0, 0));
             _expectedResults.Add(new Tuple<int, int>(0, 1));
@@ -42,7 +41,7 @@ namespace Test
             _expectedResults.Add(new Tuple<int, int>(2, 1));
             _expectedResults.Add(new Tuple<int, int>(2, 2));
 
-            Assert.AreEqual(_expectedResults, _aroundAreaStrategy.Execute(_pos, _size));
+            Assert.AreEqual(_expectedResults, _aroundAreaStrategy.Execute(pos, size));
         }
 
         /// <summary>
@@ -51,12 +50,14 @@ namespace Test
         [Test]
         public void UpperLeftCornerTest()
         {
-            _pos = new Tuple<int, int>(0, 0);
+            Tuple<int, int>  pos = new(0, 0);
+            Tuple<int, int> size = new(3, 3);
+
             _expectedResults.Add(new Tuple<int, int>(0, 1));
             _expectedResults.Add(new Tuple<int, int>(1, 0));
             _expectedResults.Add(new Tuple<int, int>(1, 1));
 
-            Assert.AreEqual(_expectedResults, _aroundAreaStrategy.Execute(_pos, _size));
+            Assert.AreEqual(_expectedResults, _aroundAreaStrategy.Execute(pos, size));
         }
 
         /// <summary>
@@ -65,12 +66,14 @@ namespace Test
         [Test]
         public void BottomLeftCornerTest()
         {
-            _pos = new Tuple<int, int>(0, 2);
+            Tuple<int, int>  pos = new (0, 2);
+            Tuple<int, int> size = new(3, 3);
+
             _expectedResults.Add(new Tuple<int, int>(0, 1));
             _expectedResults.Add(new Tuple<int, int>(1, 1));
             _expectedResults.Add(new Tuple<int, int>(1, 2));
 
-            Assert.AreEqual(_expectedResults, _aroundAreaStrategy.Execute(this._pos, this._size));
+            Assert.AreEqual(_expectedResults, _aroundAreaStrategy.Execute(pos, size));
         }
 
         /// <summary>
@@ -79,12 +82,14 @@ namespace Test
         [Test]
         public void UpperRightCornerTest()
         {
-            _pos = new Tuple<int, int>(2, 0);
+            Tuple<int, int> pos = new (2, 0);
+            Tuple<int, int> size = new(3, 3);
+
             _expectedResults.Add(new Tuple<int, int>(1, 0));
             _expectedResults.Add(new Tuple<int, int>(1, 1));
             _expectedResults.Add(new Tuple<int, int>(2, 1));
 
-            Assert.AreEqual(_expectedResults, _aroundAreaStrategy.Execute(this._pos, this._size));
+            Assert.AreEqual(_expectedResults, _aroundAreaStrategy.Execute(pos, size));
         }
 
         /// <summary>
@@ -93,12 +98,14 @@ namespace Test
         [Test]
         public void BottomRightCornerTest()
         {
-            _pos = new Tuple<int, int>(2, 2);
+            Tuple<int, int>  pos = new(2, 2);
+            Tuple<int, int> size = new(3, 3);
+
             _expectedResults.Add(new Tuple<int, int>(1, 1));
             _expectedResults.Add(new Tuple<int, int>(1, 2));
             _expectedResults.Add(new Tuple<int, int>(2, 1));
 
-            Assert.AreEqual(_expectedResults, _aroundAreaStrategy.Execute(this._pos, this._size));
+            Assert.AreEqual(_expectedResults, _aroundAreaStrategy.Execute(pos, size));
         }
     }
 }
