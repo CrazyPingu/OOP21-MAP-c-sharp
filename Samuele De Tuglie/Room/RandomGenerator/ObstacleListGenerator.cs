@@ -26,7 +26,7 @@ namespace RandomGenerator
         public ObstacleListGenerator(Tuple<int, int> size, Player player, List<SimpleEnemy> enemyList)
         {
             Tuple<int, int> pos;
-            for (int i = 0; i < _maxObstacle; i++)
+            for (int i = 0; i < size.Item1 * size.Item2 / RoomConstant.SPAWNING_RATIO; i++)
             {
                 do
                 {
