@@ -39,7 +39,8 @@ namespace Test
                 flag = true;
             }
 
-            Assert.False(flag);
+            Assert.True(flag);
+            
         }
     }
 }
