@@ -1,12 +1,8 @@
 ﻿using EntityObject;
 using ObstacleObject;
-using RandomGenerator;
 using RoomArea;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utilities;
 
 namespace GameArea
