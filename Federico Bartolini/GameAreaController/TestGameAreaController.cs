@@ -16,7 +16,9 @@ namespace Test
         private SimpleEnemy _enemy;
 
         private int _size;
-
+        /// <summary>
+        /// Method to initialize all the components
+        /// </summary>
         [SetUp]
         public void Init()
         {
@@ -28,6 +30,10 @@ namespace Test
 
             _enemy = _controller.Room.EnemyList[new Random().Next(_size)];
         }
+
+        /// <summary>
+        ///Test if the removal action was successful
+        /// </summary>
         [Test]
         public void CheckRemovedObject()
         {
@@ -40,7 +46,7 @@ namespace Test
             }
 
             Assert.True(flag);
-            
+
         }
     }
 }
