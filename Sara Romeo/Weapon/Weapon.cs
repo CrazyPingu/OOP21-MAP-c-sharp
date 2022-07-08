@@ -12,10 +12,12 @@ namespace WeaponObject
         public string Name { get; }
         private readonly IStrategy _shootingStrategy;
 
-        /**
-         * @param damage           is the damage that the weapon can inflict
-         * @param shootingStrategy is the area within the weapon can reach
-         */
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="damage">is the damage that the weapon can inflict</param>
+        /// <param name="name">is the weapon's name</param>
+        /// <param name="shootingStrategy">is the area within the weapon can reach</param>
         public Weapon(IWeaponFactory.Damage damage, string name, IStrategy shootingStrategy)
         {
             Damage = damage;

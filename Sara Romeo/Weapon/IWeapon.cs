@@ -11,7 +11,7 @@ namespace WeaponObject
         /// Gets list of available cells to attack based on shooting strategy applied.
         /// </summary>
         /// <param name="pos">current pos</param>
-        /// <param name="size"></param>
+        /// <param name="size">current room size</param>
         /// <returns>list of available cells to attack based on shooting strategy applied.</returns>
         List<Tuple<int, int>> AttackArea(Tuple<int, int> pos, Tuple<int, int> size);
     }

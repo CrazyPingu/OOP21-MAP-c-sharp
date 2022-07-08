@@ -11,6 +11,7 @@ namespace Enemy
     public class EnemyFactory : IEnemyFactory
     {
         private readonly IWeaponFactory _wf = new WeaponFactory();
+        
         /// <inheritdoc/>
         public SimpleEnemy CreateZombieStick(Tuple<int, int> pos)
         {

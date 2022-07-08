@@ -13,7 +13,7 @@ namespace EnemyAIMovement
     {
         private Room _room;
         /// <summary>
-        /// Constructor
+        /// Constructor.
         /// </summary>
         /// <param name="room">current room</param>
         public EnemyAI(Room room) => _room = room;
