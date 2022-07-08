@@ -42,7 +42,7 @@ namespace GameArea
 
 
         /// <summary>
-        /// 
+        /// Method to remove the object in the passed position
         /// </summary>
         /// <param name="pos">The position of the object that we want to remove</param>
         public void RemoveGameObject(Tuple<int, int> pos)
