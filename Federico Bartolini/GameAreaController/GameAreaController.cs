@@ -9,22 +9,22 @@ using System.Text;
 using System.Threading.Tasks;
 using Utilities;
 
-namespace GameAreaController
+namespace GameArea
 {
     public class GameAreaController
     {
 
-        private Player _player { get; }
-        private List<SimpleEnemy> EnemyList { get; }
-        private Room room;
-        private List<Obstacle> ObstacleList;
+        public Player Player { get; }
+        public List<SimpleEnemy> EnemyList { get; }
+        public Room Room { get; }
+        public List<Obstacle> ObstacleList { get; }
 
         public GameAreaController(Player player)
         {
-            _player = player;
-            room = new RoomFactory(_player).CreateMediumRoom();
-            ObstacleList = room.ObstacleList;
-            EnemyList = room.EnemyList;
+            Player = player;
+            Room = new RoomFactory(Player).CreateMediumRoom();
+            ObstacleList = Room.ObstacleList;
+            EnemyList = Room.EnemyList;
 
         }
 
@@ -37,8 +37,8 @@ namespace GameAreaController
 
         public void RemoveGameObject(Tuple<int, int> pos)
         {
-            if (pos != null && RoomConstant.CellsOccupated(ObstacleList, _player, EnemyList, pos))
-            {
+            if (pos != null && RoomConstant.CellsOccupated(ObstacleList, Player, EnemyList, pos))
+            { 
                 if (RoomConstant.SearchEnemy(pos, EnemyList) != null)
                 {
                     EnemyList.Remove(RoomConstant.SearchEnemy(pos, EnemyList));
