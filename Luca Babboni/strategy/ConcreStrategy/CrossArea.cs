@@ -21,7 +21,7 @@ namespace Strategy
 
 		public List<Tuple<int, int>> Execute(Tuple<int, int> pos, Tuple<int, int> size)
         {
-			List<Tuple<int, int>> reachableCells = new List<Tuple<int, int>>();
+			List<Tuple<int, int>> reachableCells = new();
 			Tuple<int, int> cellToAdd;
 
 			for (int i = pos.Item1 - _distance; i <= pos.Item1 + _distance; i++)

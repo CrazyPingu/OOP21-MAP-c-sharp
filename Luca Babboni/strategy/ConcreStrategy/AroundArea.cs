@@ -21,12 +21,12 @@ namespace Strategy
 
         public List<Tuple<int, int>> Execute(Tuple<int, int> pos, Tuple<int, int> size)
         {
-            List<Tuple< int, int>> reachableCells = new List<Tuple<int, int>>();
+            List<Tuple< int, int>> reachableCells = new();
             for (int i = pos.Item1 - _distance; i <= pos.Item1 + _distance; i++)
             {
                 for (int j = pos.Item2 - _distance; j <= pos.Item2 + _distance; j++)
                 {
-                    Tuple<int, int> cellToAdd = new Tuple<int, int>(i, j);
+                    Tuple<int, int> cellToAdd = new(i, j);
                     if (!pos.Equals(cellToAdd) && PosInGrid.CheckPosInGrid(cellToAdd, size))
                     {
                         reachableCells.Add(cellToAdd);
