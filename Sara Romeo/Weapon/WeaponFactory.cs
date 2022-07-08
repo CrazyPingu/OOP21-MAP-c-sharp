@@ -35,8 +35,5 @@ namespace WeaponObject
         {
             return new Weapon(IWeaponFactory.Damage.FOUR, "gun", new AroundArea(2));
         }
-
-
-
-}
+    }
 }

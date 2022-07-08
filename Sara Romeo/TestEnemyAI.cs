@@ -29,7 +29,9 @@ namespace Test
         private Room _room;
 
         [SetUp]
+        /// <summary>
         /// Initialize all elements needed.
+        /// </summary>
         public void Init()
         {
             _roomSize = new Tuple<int, int>(10, 4);
@@ -45,7 +47,9 @@ namespace Test
         }
 
         [Test]
-        /// testing of enemy's moving behavior whether there's an obstacle on a chosen cell
+        /// <summary>
+        /// Testing of enemy's moving behavior whether there's an obstacle on a chosen cell.
+        /// </summary>
         public void ObjectInArea()
         {
             Console.WriteLine("\n-- objectInArea\n");
@@ -59,7 +63,9 @@ namespace Test
         }
 
         [Test]
-        /// testing of enemy's moving area with different coordinates than player's position         
+        /// <summary>
+        /// Testing of enemy's moving area with different coordinates than player's position.
+        /// </summary>
         public void PlayerOutside()
         {
             Console.WriteLine("\n-- playerOutside\n");
@@ -84,7 +90,9 @@ namespace Test
         }
 
         [Test]
-        /// testing of enemy's moving area with enemy and player with the same X coordinate
+        /// <summary>
+        /// Testing of enemy's moving area with enemy and player with the same X coordinate.
+        /// </summary>
         public void PlayerAlignedX()
         {
             Console.WriteLine("\n-- playerAlignedX\n");
@@ -101,7 +109,9 @@ namespace Test
         }
 
         [Test]
-        /// testing of enemy's moving area with enemy and player with the same X coordinate
+        /// <summary>
+        /// Testing of enemy's moving area with enemy and player with the same X coordinate.
+        /// </summary>
         public void PlayerAlignedY()
         {
             Console.WriteLine("\n-- playerAlignedY\n");
@@ -118,7 +128,9 @@ namespace Test
         }
 
         [Test]
-        /// testing of enemy's moving area with enemy and player on the right of enemy's area (not exactly aligned with enemy pos)
+        /// <summary>
+        /// Testing of enemy's moving area with enemy and player on the right of enemy's area (not exactly aligned with enemy pos).
+        /// </summary>
         public void PlayerRightArea()
         {
             Console.WriteLine("\n-- playerRightArea\n");
@@ -136,7 +148,7 @@ namespace Test
         }
 
         /// <summary>
-        /// Results are printed on console and tested with JUnit.
+        /// Results are printed on console and tested with NUnit.
         /// </summary>
         private void ResultsToString(Tuple<int, int> newPos, List<Tuple<int, int>> expected)
         {
